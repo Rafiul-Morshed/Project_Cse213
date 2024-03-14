@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="OOP_MangoGarden.jnlp">
+  <information>
+    <title>OOP_MangoGarden</title>
+    <vendor>User-pc</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="OOP_MangoGarden.jar" size="18301" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="oop_mangogarden.OOP_MangoGarden"  name="OOP_MangoGarden" />
+  <update check="always"/>
+</jnlp>
