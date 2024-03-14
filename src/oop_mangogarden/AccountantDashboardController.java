@@ -28,6 +28,7 @@ public class AccountantDashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        // to do code here
     }    
 
     @FXML
