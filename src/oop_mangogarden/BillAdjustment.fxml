@@ -25,7 +25,7 @@
           <TableColumn prefWidth="106.0" text="Invoice No" />
             <TableColumn prefWidth="154.0" text="Product Name" />
             <TableColumn prefWidth="104.0" text="Issue Date" />
-            <TableColumn prefWidth="152.0" text="Amount" />
+            <TableColumn prefWidth="152.0" text="Total Price" />
         </columns>
       </TableView>
    </children>

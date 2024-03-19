@@ -35,8 +35,6 @@ public class MoneyReceiptController implements Initializable {
     @FXML
     private TableColumn<?, ?> dateColumn;
     @FXML
-    private TableColumn<?, ?> totalamountColumn;
-    @FXML
     private Button showallreciptOnclick;
     @FXML
     private TextField idTextfield;
@@ -44,6 +42,8 @@ public class MoneyReceiptController implements Initializable {
     private TextField dateTextfield;
     @FXML
     private Button showreciptOnclick;
+    @FXML
+    private TableColumn<?, ?> totalpriceColumn;
 
     /**
      * Initializes the controller class.

@@ -35,7 +35,7 @@ public class IssueBillReportController implements Initializable {
     @FXML
     private TableColumn<?, ?> quantityColumn;
     @FXML
-    private TableColumn<?, ?> amountColumn;
+    private TableColumn<?, ?> totalpriceColumn;
 
     /**
      * Initializes the controller class.

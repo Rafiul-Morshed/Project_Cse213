@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="791.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="oop_mangogarden.CreateBillController">
+<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_mangogarden.CreateBillController">
    <children>
       <Label layoutX="350.0" layoutY="19.0" text="Create Bill">
          <font>
@@ -30,15 +29,16 @@
       <TextField fx:id="quantityTextfield" layoutX="554.0" layoutY="168.0" />
       <Label layoutX="432.0" layoutY="218.0" text="Invoice Number:" />
       <TextField fx:id="invoiceTextfield" layoutX="554.0" layoutY="213.0" />
-      <Button layoutX="363.0" layoutY="261.0" mnemonicParsing="false" onAction="#creatOnclick" prefHeight="31.0" prefWidth="85.0" text="Create" />
+      <Button layoutX="508.0" layoutY="261.0" mnemonicParsing="false" onAction="#creatOnclick" prefHeight="31.0" prefWidth="171.0" text="Create" />
       <TableView fx:id="tableview" layoutX="46.0" layoutY="304.0" prefHeight="200.0" prefWidth="698.0">
         <columns>
           <TableColumn fx:id="invoiceColumn" prefWidth="105.0" text="Invoice No" />
           <TableColumn fx:id="productnameColumn" prefWidth="205.0" text="Product Name" />
             <TableColumn fx:id="issuedateColumn" prefWidth="131.0" text="Issue Date" />
             <TableColumn fx:id="quantityColumn" prefWidth="115.0" text="Quantity" />
-            <TableColumn fx:id="amountColumn" prefWidth="141.0" text="Amount" />
+            <TableColumn fx:id="totalpriceColumn" prefWidth="141.0" text="Total Price" />
         </columns>
       </TableView>
+      <Button layoutX="103.0" layoutY="261.0" mnemonicParsing="false" onAction="#shownewbillOnclick" prefHeight="31.0" prefWidth="171.0" text="Show New Bill" />
    </children>
 </AnchorPane>

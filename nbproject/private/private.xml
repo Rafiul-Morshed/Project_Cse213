@@ -3,29 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SalaryReportController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/BillAdjustment.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/MoneyReceiptController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/BillAdjustmentController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/TransportOperatorDashboardController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SupplierInfo.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/AccountantDashboardController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/LoginController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/TransportOperatorDashboard.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SupplierInfoController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/CreateBill.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SaleReport.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/OOP_MangoGarden.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/IssueBillReport.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/Money%20Receipt.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/Login.fxml</file>
+            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/Bill.java</file>
             <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/CreateBillController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SalaryReport.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SalaryProcess.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/IssueBillReportController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/AccountantDashboard.fxml</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SaleReportController.java</file>
-            <file>file:/C:/Users/User-pc/Documents/NetBeansProjects/OOP_MangoGarden/src/oop_mangogarden/SalaryProcessController.java</file>
         </group>
     </open-files>
 </project-private>

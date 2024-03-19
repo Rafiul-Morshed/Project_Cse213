@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="511.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_mangogarden.MoneyReceiptController">
    <children>
-      <Label layoutX="284.0" layoutY="14.0" text="Money Receipt">
+      <Label layoutX="246.0" layoutY="14.0" text="Transport Money Receipt">
          <font>
             <Font size="25.0" />
          </font>
@@ -21,7 +21,7 @@
           <TableColumn fx:id="idColumn" prefWidth="168.0" text="Shipping Employee ID" />
           <TableColumn fx:id="employeenameColumn" minWidth="2.0" prefWidth="201.0" text="Shipping Employee Name" />
             <TableColumn fx:id="dateColumn" prefWidth="95.0" text="Date" />
-            <TableColumn fx:id="totalamountColumn" minWidth="2.0" prefWidth="173.0" text="Total Amount " />
+            <TableColumn fx:id="totalpriceColumn" minWidth="2.0" prefWidth="173.0" text="Total Price " />
         </columns>
       </TableView>
       <Button fx:id="showallreciptOnclick" layoutX="385.0" layoutY="185.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="301.0" text="Show All Receipt From Transport Oparetor" />

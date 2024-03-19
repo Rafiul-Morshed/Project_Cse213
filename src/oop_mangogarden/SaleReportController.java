@@ -38,7 +38,7 @@ public class SaleReportController implements Initializable {
     @FXML
     private TableColumn<?, ?> saledateColumn;
     @FXML
-    private TableColumn<?, ?> amountColumn;
+    private TableColumn<?, ?> totalpriceColumn;
 
     /**
      * Initializes the controller class.

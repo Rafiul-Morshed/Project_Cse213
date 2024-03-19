@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="319.0" prefWidth="528.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="oop_mangogarden.AccountantDashboardController">
+<AnchorPane id="AnchorPane" prefHeight="319.0" prefWidth="617.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_mangogarden.AccountantDashboardController">
    <children>
-      <Label layoutX="143.0" layoutY="14.0" text="Accountant Dashboard">
+      <Label layoutX="192.0" layoutY="14.0" text="Accountant Dashboard">
          <font>
             <Font size="25.0" />
          </font>
@@ -18,7 +17,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="81.0" mnemonicParsing="false" onAction="#createbillOnclick" prefHeight="38.0" prefWidth="124.0" text="Create Bill">
+      <Button layoutX="208.0" layoutY="81.0" mnemonicParsing="false" onAction="#createbillOnclick" prefHeight="38.0" prefWidth="111.0" text="Create Bill">
          <font>
             <Font size="17.0" />
          </font>
@@ -28,31 +27,31 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="355.0" layoutY="81.0" mnemonicParsing="false" onAction="#moneyreciptOncilck" text="Money Recipt">
+      <Button layoutX="332.0" layoutY="81.0" mnemonicParsing="false" onAction="#moneyreciptOncilck" prefHeight="38.0" prefWidth="246.0" text="Transport Money Receipt">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="49.0" layoutY="145.0" mnemonicParsing="false" onAction="#salaryprocessOnclick" prefHeight="38.0" prefWidth="145.0" text="Salary Process">
+      <Button layoutX="49.0" layoutY="145.0" mnemonicParsing="false" onAction="#salaryprocessOnclick" prefHeight="38.0" prefWidth="136.0" text="Salary Process">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="145.0" mnemonicParsing="false" onAction="#salaryreportOnclick" text="Salary Report">
+      <Button layoutX="202.0" layoutY="145.0" mnemonicParsing="false" onAction="#salaryreportOnclick" text="Salary Report">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="355.0" layoutY="145.0" mnemonicParsing="false" onAction="#billreportOnclick" text="Bill Report">
+      <Button layoutX="346.0" layoutY="145.0" mnemonicParsing="false" onAction="#billreportOnclick" text="Bill Report">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="202.0" mnemonicParsing="false" onAction="#salereportOnclick" text="Sale Report">
+      <Button layoutX="466.0" layoutY="145.0" mnemonicParsing="false" onAction="#salereportOnclick" text="Sale Report">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="423.0" layoutY="263.0" mnemonicParsing="false" onAction="#logoutOnclick" text="Logout" />
+      <Button layoutX="509.0" layoutY="257.0" mnemonicParsing="false" onAction="#logoutOnclick" text="Logout" />
    </children>
 </AnchorPane>

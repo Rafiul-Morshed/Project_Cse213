@@ -25,7 +25,7 @@
           <TableColumn fx:id="invoiceColumn" prefWidth="99.0" text="Invoice No" />
           <TableColumn fx:id="productnameCloumn" prefWidth="128.0" text="Product Name" />
             <TableColumn fx:id="saledateColumn" prefWidth="106.0" text="Sale Date" />
-            <TableColumn fx:id="amountColumn" prefWidth="126.0" text="Amount" />
+            <TableColumn fx:id="totalpriceColumn" prefWidth="126.0" text="Total Price" />
         </columns>
       </TableView>
    </children>
