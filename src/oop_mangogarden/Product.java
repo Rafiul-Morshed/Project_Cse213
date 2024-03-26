@@ -3,11 +3,16 @@ package oop_mangogarden;
 
 
 public class Product {
-    public String productName;
+    private String productName;
+    private String productID;
     private Float price;
 
-    public Product(String productName, Float price) {
+    public Product() {
+    }
+
+    public Product(String productName, String productID, Float price) {
         this.productName = productName;
+        this.productID = productID;
         this.price = price;
     }
 
@@ -15,8 +20,16 @@ public class Product {
         return productName;
     }
 
-    public void setProductrName(String productrName) {
+    public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getProductID() {
+        return productID;
+    }
+
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
     public Float getPrice() {
@@ -29,9 +42,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" + "productrName=" + productName + ", price=" + price + '}';
+        return "Product{" + "productName=" + productName + ", productID=" + productID + ", price=" + price + '}';
     }
-    
-    
+ 
     
 }

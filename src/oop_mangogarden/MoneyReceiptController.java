@@ -29,21 +29,19 @@ public class MoneyReceiptController implements Initializable {
     @FXML
     private TableView<?> tableview;
     @FXML
-    private TableColumn<?, ?> idColumn;
-    @FXML
-    private TableColumn<?, ?> employeenameColumn;
-    @FXML
     private TableColumn<?, ?> dateColumn;
     @FXML
     private Button showallreciptOnclick;
-    @FXML
-    private TextField idTextfield;
     @FXML
     private TextField dateTextfield;
     @FXML
     private Button showreciptOnclick;
     @FXML
     private TableColumn<?, ?> totalpriceColumn;
+    @FXML
+    private TableColumn<?, ?> drivernameColumn;
+    @FXML
+    private TableColumn<?, ?> contactColumn;
 
     /**
      * Initializes the controller class.
