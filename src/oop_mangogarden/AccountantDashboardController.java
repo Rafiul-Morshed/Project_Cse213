@@ -33,12 +33,13 @@ public class AccountantDashboardController implements Initializable {
 
     @FXML
     private void billadjustmentOnclick(ActionEvent event) throws Exception{
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("FXMLAdminCreateMeeting.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("BillAdjustment.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
         window.setScene(scene1);
         window.show();
+
     }
 
     @FXML
@@ -81,15 +82,6 @@ public class AccountantDashboardController implements Initializable {
         window.show();
     }
 
-    @FXML
-    private void billreportOnclick(ActionEvent event) throws Exception{
-         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("FXMLAdminCreateMeeting.fxml"));
-        Scene scene1 = new Scene(mainSceneParent);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(scene1);
-        window.show();
-    }
 
     @FXML
     private void salereportOnclick(ActionEvent event) throws Exception{
@@ -103,6 +95,12 @@ public class AccountantDashboardController implements Initializable {
 
     @FXML
     private void logoutOnclick(ActionEvent event) throws Exception{
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();        
         
     }
 
@@ -114,6 +112,10 @@ public class AccountantDashboardController implements Initializable {
         
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void paymentdiscountOnclick(ActionEvent event) {
     }
     
 }

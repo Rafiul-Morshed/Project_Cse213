@@ -8,8 +8,13 @@ public class Salary extends Employee{
 //        super(employeeType, employeeName, employeeID);
 //    }
 
-    public Salary(int salary, String employeeType, String employeeName, int employeeID) {
-        super(employeeType, employeeName, employeeID);
+
+    public Salary(int salary) {
+        this.salary = salary;
+    }
+
+    public Salary(int salary, String employeeType, String employeeName, int employeeID, String gender, String contactNumber) {
+        super(employeeType, employeeName, employeeID, gender, contactNumber);
         this.salary = salary;
     }
 
@@ -23,8 +28,10 @@ public class Salary extends Employee{
 
     @Override
     public String toString() {
-        return "Salary{" + super.toString() + "salary=" + salary + '}';
+        return "Salary{" + "salary=" + salary + '}';
     }
+
+    
     
     
     

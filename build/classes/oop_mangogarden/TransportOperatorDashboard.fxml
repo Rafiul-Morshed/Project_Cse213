@@ -12,14 +12,14 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutX="498.0" layoutY="330.0" mnemonicParsing="false" text="Logout" />
+      <Button layoutX="498.0" layoutY="330.0" mnemonicParsing="false" onAction="#logoutOnclick" text="Logout" />
       <Button layoutX="47.0" layoutY="79.0" mnemonicParsing="false" onAction="#productinfoOnclick" text="Transportable Product Info" />
       <Button layoutX="277.0" layoutY="79.0" mnemonicParsing="false" onAction="#purchaseorderOnclick" text="Purchase Order" />
       <Button layoutX="437.0" layoutY="79.0" mnemonicParsing="false" onAction="#issuePurchaseOnclick" text="Issue Purchase" />
-      <Button layoutX="47.0" layoutY="137.0" mnemonicParsing="false" onAction="#productcatagoryOnclick" text="Product Catagory" />
+      <Button layoutX="47.0" layoutY="137.0" mnemonicParsing="false" onAction="#productrequestOnclick" text="Product Request" />
       <Button layoutX="223.0" layoutY="137.0" mnemonicParsing="false" onAction="#supplierinfoOnclick" text="Supplier Info" />
-      <Button layoutX="362.0" layoutY="137.0" mnemonicParsing="false" onAction="#transactionOnclcik" text="Transaction Info" />
-      <Button layoutX="47.0" layoutY="200.0" mnemonicParsing="false" onAction="#paymentdiscountOnclick" text="Payment Discount" />
-      <Button layoutX="223.0" layoutY="200.0" mnemonicParsing="false" onAction="#damageadjustmentOnclick" text="Damage Adjustment" />
+      <Button layoutX="362.0" layoutY="137.0" mnemonicParsing="false" onAction="#transportationOnclcik" text="Transportation Info" />
+      <Button layoutX="47.0" layoutY="200.0" mnemonicParsing="false" onAction="#damagereportOnclick" text="Damage Adjustment Report" />
+      <Button layoutX="359.0" layoutY="200.0" mnemonicParsing="false" onAction="#damageadjustmentOnclick" text="Damage Adjustment" />
    </children>
 </AnchorPane>

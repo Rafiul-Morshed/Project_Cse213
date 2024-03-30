@@ -5,11 +5,21 @@ public class Employee {
     private String employeeType;
     private String employeeName;
     private int employeeID;
+    private String gender;
+    private String contactNumber;
+    
 
-    public Employee(String employeeType, String employeeName, int employeeID) {
+    public Employee() {
+    }
+
+    public Employee(String employeeType, String employeeName, int employeeID, String gender, String contactNumber) {
         this.employeeType = employeeType;
         this.employeeName = employeeName;
         this.employeeID = employeeID;
+        this.gender = gender;
+        this.contactNumber = contactNumber;
+        
+        
     }
 
     public String getEmployeeType() {
@@ -36,10 +46,30 @@ public class Employee {
         this.employeeID = employeeID;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" + "employeeType=" + employeeType + ", employeeName=" + employeeName + ", employeeID=" + employeeID + '}';
+        return "Employee{" + "employeeType=" + employeeType + ", employeeName=" + employeeName + ", employeeID=" + employeeID + ", gender=" + gender + ", contactNumber=" + contactNumber + '}';
     }
+
+    
+
+
     
     
     

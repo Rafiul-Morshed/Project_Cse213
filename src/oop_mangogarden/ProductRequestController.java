@@ -6,7 +6,17 @@ package oop_mangogarden;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -15,6 +25,29 @@ import javafx.fxml.Initializable;
  */
 public class ProductRequestController implements Initializable {
 
+    @FXML
+    private TextField employeeidTextfield;
+    @FXML
+    private TextField contactTextfield;
+    @FXML
+    private TableView<?> tableview;
+    @FXML
+    private TableColumn<?, ?> employeeidColumn;
+    @FXML
+    private TableColumn<?, ?> contactColumn;
+    @FXML
+    private TableColumn<?, ?> productidColumn;
+    @FXML
+    private TableColumn<?, ?> quantityColumn;
+    @FXML
+    private TableColumn<?, ?> dateColumn;
+    @FXML
+    private TextField productidTextfield;
+    @FXML
+    private TextField quantityTextfield;
+    @FXML
+    private TextField dateTextfield;
+
     /**
      * Initializes the controller class.
      */
@@ -22,5 +55,27 @@ public class ProductRequestController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void backOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
+    }
+
+    @FXML
+    private void confiemOnclick(ActionEvent event) {
+    }
+
+    @FXML
+    private void showproductsOnclick(ActionEvent event) {
+    }
+
+    @FXML
+    private void sendOnclick(ActionEvent event) {
+    }
     
 }

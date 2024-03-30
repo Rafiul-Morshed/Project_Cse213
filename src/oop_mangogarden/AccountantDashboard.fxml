@@ -42,12 +42,12 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="346.0" layoutY="145.0" mnemonicParsing="false" onAction="#billreportOnclick" text="Bill Report">
+      <Button layoutX="346.0" layoutY="145.0" mnemonicParsing="false" onAction="#paymentdiscountOnclick" text="Payment Discount">
          <font>
             <Font size="17.0" />
          </font>
       </Button>
-      <Button layoutX="466.0" layoutY="145.0" mnemonicParsing="false" onAction="#salereportOnclick" text="Sale Report">
+      <Button layoutX="215.0" layoutY="202.0" mnemonicParsing="false" onAction="#salereportOnclick" text="Sale Report">
          <font>
             <Font size="17.0" />
          </font>

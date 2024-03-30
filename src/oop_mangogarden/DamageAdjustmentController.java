@@ -13,8 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -22,26 +21,24 @@ import javafx.stage.Stage;
  *
  * @author User-pc
  */
-public class DamageAdjustmentReportController implements Initializable {
+public class DamageAdjustmentController implements Initializable {
 
     @FXML
-    private TableView<?> tableview;
+    private TextField drivernameTextfield;
     @FXML
-    private TableColumn<?, ?> drivernameColumn;
+    private TextField platenoTextfield;
     @FXML
-    private TableColumn<?, ?> platenoColumn;
+    private TextField dateTextfield;
     @FXML
-    private TableColumn<?, ?> dateColumn;
+    private TextField destinationTextfield;
     @FXML
-    private TableColumn<?, ?> destinationColumn;
+    private TextField productidTextfield;
     @FXML
-    private TableColumn<?, ?> productidColumn;
+    private TextField quantityTextfield;
     @FXML
-    private TableColumn<?, ?> quantityColumn;
+    private TextField damageTextfield;
     @FXML
-    private TableColumn<?, ?> damagequantityColumn;
-    @FXML
-    private TableColumn<?, ?> adjustmentCOlumn;
+    private TextField adjustmentTextfield;
 
     /**
      * Initializes the controller class.
@@ -53,16 +50,16 @@ public class DamageAdjustmentReportController implements Initializable {
 
     @FXML
     private void backOnclick(ActionEvent event) throws Exception{
-             Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
         window.setScene(scene1);
-        window.show();   
+        window.show();
     }
 
     @FXML
-    private void showreportOnclick(ActionEvent event) {
+    private void saveOnclick(ActionEvent event) {
     }
     
 }

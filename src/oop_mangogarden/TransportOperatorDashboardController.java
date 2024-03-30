@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
 import java.net.URL;
@@ -32,7 +29,7 @@ public class TransportOperatorDashboardController implements Initializable {
 
     @FXML
     private void productinfoOnclick(ActionEvent event) throws Exception{
-                        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportableProductInfo.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportableProductInfo.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
@@ -41,16 +38,25 @@ public class TransportOperatorDashboardController implements Initializable {
     }
 
     @FXML
-    private void purchaseorderOnclick(ActionEvent event) {
+    private void purchaseorderOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("PurchaseOrder.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void issuePurchaseOnclick(ActionEvent event) {
+    private void issuePurchaseOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("IssuePurchase.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
     }
 
-    @FXML
-    private void productcatagoryOnclick(ActionEvent event) {
-    }
 
     @FXML
     private void supplierinfoOnclick(ActionEvent event) throws Exception{
@@ -62,16 +68,55 @@ public class TransportOperatorDashboardController implements Initializable {
         window.show();
     }
 
+
     @FXML
-    private void transactionOnclcik(ActionEvent event) {
+    private void damageadjustmentOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("DamageAdjustment.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void paymentdiscountOnclick(ActionEvent event) {
+    private void logoutOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void damageadjustmentOnclick(ActionEvent event) {
+    private void productrequestOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("ProductRequest.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
+    }
+
+    @FXML
+    private void transportationOnclcik(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportationInformation.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
+    }
+
+    @FXML
+    private void damagereportOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("DamageAdjustmentReport.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
     }
     
 }

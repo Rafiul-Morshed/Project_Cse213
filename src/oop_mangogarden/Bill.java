@@ -2,7 +2,7 @@
 package oop_mangogarden;
 
 public class Bill {
-    private String clientName;
+    private String customerName;
     private String address;
     private int issueDate;
     private String productname;
@@ -13,8 +13,8 @@ public class Bill {
     public Bill() {
     }
 
-    public Bill(String clientName, String address, int issueDate, String productname, int quantity, int invoiceNo, Float totalPrice) {
-        this.clientName = clientName;
+    public Bill(String customerName, String address, int issueDate, String productname, int quantity, int invoiceNo, Float totalPrice) {
+        this.customerName = customerName;
         this.address = address;
         this.issueDate = issueDate;
         this.productname = productname;
@@ -23,12 +23,12 @@ public class Bill {
         this.totalPrice = totalPrice;
     }
 
-    public String getClientName() {
-        return clientName;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public String getAddress() {
@@ -81,7 +81,7 @@ public class Bill {
 
     @Override
     public String toString() {
-        return "Bill{" + "clientName=" + clientName + ", address=" + address + ", issueDate=" + issueDate + ", productname=" + productname + ", quantity=" + quantity + ", invoiceNo=" + invoiceNo + ", totalPrice=" + totalPrice + '}';
+        return "Bill{" + "customerName=" + customerName + ", address=" + address + ", issueDate=" + issueDate + ", productname=" + productname + ", quantity=" + quantity + ", invoiceNo=" + invoiceNo + ", totalPrice=" + totalPrice + '}';
     }
 
     

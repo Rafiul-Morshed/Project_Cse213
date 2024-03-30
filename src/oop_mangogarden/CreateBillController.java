@@ -1,6 +1,9 @@
 
 package oop_mangogarden;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -25,8 +28,6 @@ import javafx.stage.Stage;
 public class CreateBillController implements Initializable {
 
     @FXML
-    private TextField clientnameTextfield;
-    @FXML
     private TextField addressTextfield;
     @FXML
     private TextField issuedateTextfield;
@@ -50,6 +51,8 @@ public class CreateBillController implements Initializable {
     private TableColumn<Bill, Float> totalpriceColumn;
     
     ArrayList<Bill> createbillList;
+    @FXML
+    private TextField customernameTextfield;
     
     
     
@@ -77,20 +80,56 @@ public class CreateBillController implements Initializable {
 
     @FXML
     private void creatOnclick(ActionEvent event) {
-                Float total=100.00f;
-                createbillList.add(
-                    new Bill(
-                        clientnameTextfield.getText(),
-                        addressTextfield.getText(),
-                        Integer.parseInt(issuedateTextfield.getText()),
-                        productnameTextfield.getText(),
-                        Integer.parseInt(quantityColumn.getText()),
-                        Integer.parseInt(invoiceTextfield.getText()),
-                        total
-                    
-                    )
+//        
+//        File f = null;
+//        FileOutputStream fos = null;
+//        ObjectOutputStream oos = null;
+//        try{
+//            f = new File("CreateBill_01.txt");
+//            if(f.exists()){
+//                fos = new FileOutputStream(f, true);
+//                oos = new ObjectOutputStream(fos);
+//                
+//            }
+//            else{
+//                fos = new FileOutputStream(f);
+//                oos = new ObjectOutputStream(fos);
+//            }
+//            //String customerName, String address, int issueDate
+//            //String productname, int quantity, int invoiceNo, Float totalPrice
+//            Float total = 100.00f;
+//            Bill b = new Bill(customernameTextfield.getText(), addressTextfield.getText(), 
+//                    Integer.parseInt(issuedateTextfield.getText()), productnameTextfield.getText(),
+//                    Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(invoiceTextfield.getText()), total);
+//            
+//            oos.writeObject(b); 
+//            
+//            customernameTextfield.clear(); addressTextfield.clear();
+//            issuedateTextfield.clear(); productnameTextfield.clear();
+//            quantityTextfield.clear(); invoiceTextfield.clear();
+//            
+//        }
+//        catch(IOException e){
+//            
+//            
+//        }
         
-                );
+        
+        
+//                Float total=100.00f;
+//                createbillList.add(
+//                    new Bill(
+//                        customernameTextfield.getText(),
+//                        addressTextfield.getText(),
+//                        Integer.parseInt(issuedateTextfield.getText()),
+//                        productnameTextfield.getText(),
+//                        Integer.parseInt(quantityColumn.getText()),
+//                        Integer.parseInt(invoiceTextfield.getText()),
+//                        total
+//                    
+//                    )
+//        
+//                );
     }
 
     @FXML
