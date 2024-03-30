@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mango.garden.estate.md.obidul.huq.sagor.OrderManagement_DashboardController">
+   <children>
+      <AnchorPane layoutY="4.0" prefHeight="60.0" prefWidth="605.0">
+         <children>
+            <Button fx:id="BackOMfxid" layoutX="551.0" layoutY="12.0" mnemonicParsing="false" onAction="#BackOMOnAction" text="Back" />
+            <Text layoutX="184.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Management">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="64.0" prefHeight="350.0" prefWidth="210.0">
+         <children>
+            <Text layoutX="7.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Order">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Text>
+            <TextField fx:id="CreateCNamefxit" layoutX="57.0" layoutY="70.0" prefHeight="26.0" prefWidth="144.0" />
+            <Text layoutX="17.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+            <TextField fx:id="CreateOrderfxit" layoutX="57.0" layoutY="106.0" prefHeight="26.0" prefWidth="144.0" />
+            <Text layoutX="15.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order:" />
+            <TextField fx:id="CreateQuantityfxit" layoutX="57.0" layoutY="143.0" prefHeight="26.0" prefWidth="144.0" />
+            <Text layoutX="2.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" />
+            <Button fx:id="cNoSubmitfxid" layoutX="74.0" layoutY="192.0" mnemonicParsing="false" onAction="#cNoSubmitOnAction" text="Submit" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="210.0" layoutY="71.0" prefHeight="337.0" prefWidth="356.0">
+         <children>
+            <TableView layoutX="1.0" prefHeight="337.0" prefWidth="386.0">
+              <columns>
+                <TableColumn fx:id="CustomerNamefxid" prefWidth="120.0" text="Customer Name" />
+                  <TableColumn fx:id="Orderfxid" prefWidth="91.0" text="order" />
+                  <TableColumn fx:id="Quantityfxid" prefWidth="83.0" text="Quantity" />
+                  <TableColumn fx:id="statusfxid" prefWidth="91.0" text="Status" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
