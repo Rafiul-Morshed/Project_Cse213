@@ -10,33 +10,31 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author md.obidulhuqsagor
  */
-public class ReportingAndAnalytics_DeshboardController implements Initializable {
+public class Purchasing_DashboardController implements Initializable {
 
     @FXML
-    private Button BackRaaFfxid;
+    private Button searchPurfxid;
     @FXML
-    private TableView<?> tabelviewTmfxid;
+    private Button backPurfxid;
     @FXML
-    private TableColumn<?, ?> Raaorderididfxid1;
+    private TextField orderIDPurfxid;
     @FXML
-    private TableColumn<?, ?> RaaPurposefxid;
+    private TextField namePurfxid;
     @FXML
-    private TableColumn<?, ?> RaaTasksfxid;
+    private TextField quantityPurfxid;
     @FXML
-    private TableColumn<?, ?> RaaResultsfxid;
+    private TextField shipToPurfxid;
     @FXML
-    private TableColumn<?, ?> Raavaluedtfxid;
+    private TextField paymentdatePurfxid;
     @FXML
-    private TableColumn<?, ?> RaaAmountfxid1;
+    private TextField totalamountPurfxid;
 
     /**
      * Initializes the controller class.
@@ -47,15 +45,11 @@ public class ReportingAndAnalytics_DeshboardController implements Initializable 
     }    
 
     @FXML
-    private void Raa(MouseEvent event) {
+    private void searchorderIDPurOnClick(ActionEvent event) {
     }
 
     @FXML
-    private void BackRaaOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void RaaSearchOnClick(ActionEvent event) {
+    private void backPuronClick(ActionEvent event) {
     }
     
 }
