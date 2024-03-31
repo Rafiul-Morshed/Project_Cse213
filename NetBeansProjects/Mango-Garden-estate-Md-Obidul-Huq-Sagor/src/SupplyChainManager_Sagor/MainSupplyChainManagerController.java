@@ -42,7 +42,7 @@ public class MainSupplyChainManagerController implements Initializable {
 
     @FXML
     private void orderManagementOnClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("OrderManagement_Dashboard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("orderManagement.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene1);

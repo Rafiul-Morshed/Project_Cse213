@@ -18,22 +18,22 @@ import javafx.scene.control.TableView;
  *
  * @author md.obidulhuqsagor
  */
-public class TransferManagement_DashboardController implements Initializable {
+public class TransferManagementController implements Initializable {
 
     @FXML
-    private Button BackTmfxid;
+    private Button backTmfxid;
     @FXML
     private TableView<?> tabelviewTmfxid;
     @FXML
-    private TableColumn<?, ?> TmNamefxid;
+    private TableColumn<?, ?> tmNamefxid;
     @FXML
-    private TableColumn<?, ?> TmOrderfxid;
+    private TableColumn<?, ?> tmOrderfxid;
     @FXML
-    private TableColumn<?, ?> TmFromfxid;
+    private TableColumn<?, ?> tmFromfxid;
     @FXML
-    private TableColumn<?, ?> TmTofxid;
+    private TableColumn<?, ?> tmTofxid;
     @FXML
-    private TableColumn<?, ?> TmMovedatefxid;
+    private TableColumn<?, ?> tmMovedatefxid;
 
     /**
      * Initializes the controller class.
@@ -44,7 +44,7 @@ public class TransferManagement_DashboardController implements Initializable {
     }    
 
     @FXML
-    private void BackTmOnAction(ActionEvent event) {
+    private void backTmOnClick(ActionEvent event) {
     }
     
 }
