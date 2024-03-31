@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package Horticulturist_Sagor;
+package SupplyChainManager_Sagor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author md.obidulhuqsagor
  */
-public class Garden_dashboardController implements Initializable {
+public class ShippingCapabilities_DashboardController implements Initializable {
 
     /**
      * Initializes the controller class.

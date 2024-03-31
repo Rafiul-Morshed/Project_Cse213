@@ -18,7 +18,7 @@ public class MangoGardenEstateMdObidulHuqSagor extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SupplyChainManager_Dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("mainSupplyChainManager.fxml"));
         
         Scene scene = new Scene(root);
         
