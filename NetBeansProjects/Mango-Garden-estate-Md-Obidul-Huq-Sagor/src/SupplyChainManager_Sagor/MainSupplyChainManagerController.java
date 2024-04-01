@@ -78,15 +78,30 @@ public class MainSupplyChainManagerController implements Initializable {
     }
 
     @FXML
-    private void shippingCapabilitiesOnClick(ActionEvent event) {
+    private void shippingCapabilitiesOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("shippingCapabilities.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void deliveryLogisticsOnClick(ActionEvent event) {
+    private void deliveryLogisticsOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("deliveryAndLogistics.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void returnFeedbackOnClick(ActionEvent event) {
+    private void returnFeedbackOnClick(ActionEvent event) throws IOException {
+          Parent mainSceneParent = FXMLLoader.load(getClass().getResource("returnAndFeedback.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();  
     }
 
     @FXML
