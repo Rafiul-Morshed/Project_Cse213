@@ -5,7 +5,11 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 
 /**
  * FXML Controller class
@@ -14,6 +18,11 @@ import javafx.fxml.Initializable;
  */
 public class DataVisualizationController implements Initializable {
 
+    @FXML
+    private ComboBox<?> selectDataFXID;
+    @FXML
+    private TextArea visualOutputFXID;
+
     /**
      * Initializes the controller class.
      */
@@ -21,5 +30,13 @@ public class DataVisualizationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void customizeButtonOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void showVisualButtonOnAction(ActionEvent event) {
+    }
     
 }

@@ -9,16 +9,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author User
  */
-public class DashboardCreationController implements Initializable {
+public class RBACController implements Initializable {
 
     @FXML
-    private ComboBox<?> selectDataFXID;
+    private TextField inputUserIdFXID;
+    @FXML
+    private ComboBox<?> selectAccessComboBoxFXID;
 
     /**
      * Initializes the controller class.
@@ -29,11 +32,7 @@ public class DashboardCreationController implements Initializable {
     }    
 
     @FXML
-    private void customizeButtonOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void showTrendsButtonOnAction(ActionEvent event) {
+    private void updateButtonOnAction(ActionEvent event) {
     }
     
 }

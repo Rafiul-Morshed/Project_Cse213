@@ -5,7 +5,10 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 
 /**
  * FXML Controller class
@@ -14,6 +17,13 @@ import javafx.fxml.Initializable;
  */
 public class DataProcessingController implements Initializable {
 
+    @FXML
+    private ComboBox<?> selectDataFXID;
+    @FXML
+    private ComboBox<?> selectDataFXID1;
+    @FXML
+    private ComboBox<?> selectDataFXID2;
+
     /**
      * Initializes the controller class.
      */
@@ -21,5 +31,9 @@ public class DataProcessingController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void analyzeButtonOnAction(ActionEvent event) {
+    }
     
 }

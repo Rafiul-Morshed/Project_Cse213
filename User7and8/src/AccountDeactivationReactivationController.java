@@ -8,17 +8,17 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
  *
  * @author User
  */
-public class DashboardCreationController implements Initializable {
+public class AccountDeactivationReactivationController implements Initializable {
 
     @FXML
-    private ComboBox<?> selectDataFXID;
+    private TextField enterUserIdFXID;
 
     /**
      * Initializes the controller class.
@@ -29,11 +29,11 @@ public class DashboardCreationController implements Initializable {
     }    
 
     @FXML
-    private void customizeButtonOnAction(ActionEvent event) {
+    private void deactivateButtonOnAction(ActionEvent event) {
     }
 
     @FXML
-    private void showTrendsButtonOnAction(ActionEvent event) {
+    private void reactivateButtonOnAction(ActionEvent event) {
     }
     
 }
