@@ -1,52 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SupplyChainManager_Sagor.OrderManagementController">
    <children>
-      <AnchorPane layoutX="3.0" layoutY="1.0" prefHeight="60.0" prefWidth="605.0">
+      <AnchorPane prefHeight="66.0" prefWidth="600.0">
          <children>
-            <Button fx:id="backOMfxid" layoutX="548.0" layoutY="12.0" mnemonicParsing="false" onAction="#backOMonClick" text="Back" />
-            <Text layoutX="184.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Management">
+            <Text layoutX="214.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Management">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="21.0" />
                </font>
             </Text>
+            <Button layoutX="516.0" layoutY="17.0" mnemonicParsing="false" onAction="#omBackOnClick" text="Back" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="3.0" layoutY="61.0" prefHeight="350.0" prefWidth="210.0">
+      <AnchorPane layoutX="14.0" layoutY="58.0" prefHeight="336.0" prefWidth="244.0">
          <children>
-            <Text layoutX="7.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Order">
+            <Text layoutX="50.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Order" wrappingWidth="143.30078125">
                <font>
-                  <Font name="System Bold" size="25.0" />
+                  <Font name="System Bold Italic" size="18.0" />
                </font>
             </Text>
-            <TextField fx:id="createOmNamefxit" layoutX="62.0" layoutY="70.0" prefHeight="26.0" prefWidth="144.0" />
-            <Text layoutX="21.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
-            <TextField fx:id="createOmOrderfxit" layoutX="62.0" layoutY="106.0" prefHeight="26.0" prefWidth="144.0" />
-            <Text layoutX="20.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order:" />
-            <TextField fx:id="createOmQuantityfxit" layoutX="62.0" layoutY="143.0" prefHeight="26.0" prefWidth="144.0" />
-            <Text layoutX="7.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:" />
-            <Button fx:id="omSubmitfxid" layoutX="74.0" layoutY="192.0" mnemonicParsing="false" onAction="#omSubmitOnClick" text="Submit" />
+            <Text layoutX="18.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="omNameCreatefxml" layoutX="75.0" layoutY="78.0" />
+            <Text layoutX="18.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="omOderCreatefxml" layoutX="75.0" layoutY="130.0" />
+            <Text layoutX="18.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantity:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="omQuantityCreatefxml" layoutX="75.0" layoutY="190.0" />
+            <Button layoutX="92.0" layoutY="247.0" mnemonicParsing="false" onAction="#omSubmitOnClick" text="Submit" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="213.0" layoutY="68.0" prefHeight="337.0" prefWidth="356.0">
-         <children>
-            <TableView layoutX="1.0" prefHeight="337.0" prefWidth="386.0">
-               <columns>
-                  <TableColumn fx:id="customerNamefxid" prefWidth="120.0" text="Customer Name" />
-                  <TableColumn fx:id="orderfxid" prefWidth="91.0" text="order" />
-                  <TableColumn fx:id="quantityfxid" prefWidth="83.0" text="Quantity" />
-                  <TableColumn fx:id="statusfxid" prefWidth="91.0" text="Status" />
-               </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
+      <TableView layoutX="258.0" layoutY="58.0" prefHeight="326.0" prefWidth="342.0">
+        <columns>
+          <TableColumn fx:id="omcustomernamefxml" prefWidth="110.0" text="Customer Name" />
+          <TableColumn fx:id="onOrderfxml" prefWidth="83.0" text="Order" />
+            <TableColumn fx:id="omQuantityfxml" prefWidth="70.0" text="Quantity" />
+            <TableColumn fx:id="omStatusfxml" prefWidth="78.0" text="Status" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

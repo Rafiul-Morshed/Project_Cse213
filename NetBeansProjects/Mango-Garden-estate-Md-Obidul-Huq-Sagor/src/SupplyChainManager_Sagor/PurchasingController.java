@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -23,22 +22,18 @@ import javafx.stage.Stage;
  *
  * @author md.obidulhuqsagor
  */
-public class OrderManagementController implements Initializable {
+public class PurchasingController implements Initializable {
 
     @FXML
-    private TextField omNameCreatefxml;
+    private TextField purOderIdSearch;
     @FXML
-    private TextField omOderCreatefxml;
+    private TextField purNamefxid;
     @FXML
-    private TextField omQuantityCreatefxml;
+    private TextField purshipfxid;
     @FXML
-    private TableColumn<?, ?> omcustomernamefxml;
+    private TextField purpaymentdatefxid;
     @FXML
-    private TableColumn<?, ?> onOrderfxml;
-    @FXML
-    private TableColumn<?, ?> omQuantityfxml;
-    @FXML
-    private TableColumn<?, ?> omStatusfxml;
+    private TextField purtotalfxid;
 
     /**
      * Initializes the controller class.
@@ -49,7 +44,7 @@ public class OrderManagementController implements Initializable {
     }    
 
     @FXML
-    private void omBackOnClick(ActionEvent event) throws IOException {
+    private void purBackOnClick(ActionEvent event) throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("mainSupplyChainManager.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -58,7 +53,7 @@ public class OrderManagementController implements Initializable {
     }
 
     @FXML
-    private void omSubmitOnClick(ActionEvent event) {
+    private void purSearchOnClick(ActionEvent event) {
     }
     
 }

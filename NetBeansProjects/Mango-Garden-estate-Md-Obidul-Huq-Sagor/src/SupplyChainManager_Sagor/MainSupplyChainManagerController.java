@@ -47,11 +47,12 @@ public class MainSupplyChainManagerController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+        
     }
 
     @FXML
     private void transferManagementOnClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransferManagement_Dashboard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("transferManagement.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -59,11 +60,21 @@ public class MainSupplyChainManagerController implements Initializable {
     }
 
     @FXML
-    private void ReportingAnalyticsOnClick(ActionEvent event) {
+    private void ReportingAnalyticsOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("reportingAndAnalytics.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void purchasingOnClick(ActionEvent event) {
+    private void purchasingOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("purchasing.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML

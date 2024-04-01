@@ -23,22 +23,22 @@ import javafx.stage.Stage;
  *
  * @author md.obidulhuqsagor
  */
-public class OrderManagementController implements Initializable {
+public class ReportingAndAnalyticsController implements Initializable {
 
     @FXML
-    private TextField omNameCreatefxml;
+    private TableColumn<?, ?> raaorderidfxml;
     @FXML
-    private TextField omOderCreatefxml;
+    private TableColumn<?, ?> raapurposefxml;
     @FXML
-    private TextField omQuantityCreatefxml;
+    private TableColumn<?, ?> raaTaskfxml;
     @FXML
-    private TableColumn<?, ?> omcustomernamefxml;
+    private TableColumn<?, ?> raaResultsfxml;
     @FXML
-    private TableColumn<?, ?> onOrderfxml;
+    private TableColumn<?, ?> raaValuefxml;
     @FXML
-    private TableColumn<?, ?> omQuantityfxml;
+    private TableColumn<?, ?> raaamountfxml;
     @FXML
-    private TableColumn<?, ?> omStatusfxml;
+    private TextField raaOrderDdOnClick;
 
     /**
      * Initializes the controller class.
@@ -49,7 +49,7 @@ public class OrderManagementController implements Initializable {
     }    
 
     @FXML
-    private void omBackOnClick(ActionEvent event) throws IOException {
+    private void raabackOnClick(ActionEvent event) throws IOException {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("mainSupplyChainManager.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -58,7 +58,7 @@ public class OrderManagementController implements Initializable {
     }
 
     @FXML
-    private void omSubmitOnClick(ActionEvent event) {
+    private void raaSearchOnClick(ActionEvent event) {
     }
     
 }
