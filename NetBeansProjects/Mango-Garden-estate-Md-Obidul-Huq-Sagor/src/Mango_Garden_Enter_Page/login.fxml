@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Mango_Garden_Enter_Page.LoginController">
+   <children>
+      <TextField fx:id="nameTextfield" layoutX="221.0" layoutY="133.0" promptText="Name" />
+      <TextField fx:id="idTextfield" layoutX="221.0" layoutY="180.0" promptText="ID" />
+      <Button layoutX="235.0" layoutY="271.0" mnemonicParsing="false" onAction="#loginOnclick" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: #1E90FF;" text="Login">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="269.0" layoutY="38.0" text="Login" textFill="#838383">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <Button layoutX="231.0" layoutY="320.0" mnemonicParsing="false" onAction="#createaccOnclick" prefHeight="31.0" prefWidth="137.0" style="-fx-background-color: 00000;" text="Create Account" textFill="#251df5" underline="true" />
+      <TextField fx:id="passwordTextfield" layoutX="220.0" layoutY="227.0" promptText="Password" />
+      <MenuButton layoutX="219.0" layoutY="89.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="160.0" text="Mango Garden ">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Garden Manager" />
+          <MenuItem mnemonicParsing="false" text="Transport Operator" />
+            <MenuItem mnemonicParsing="false" text="Accountant" />
+            <MenuItem mnemonicParsing="false" onAction="#loginSupplychainManagerOnClick" text="Supply Chain Manager " />
+            <MenuItem mnemonicParsing="false" onAction="#loginHorticulturistOnClick" text="Horticulturist" />
+            <MenuItem mnemonicParsing="false" text="hief Executive Officer (CEO)" />
+            <MenuItem mnemonicParsing="false" text="IT Admin" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+   </children>
+</AnchorPane>
