@@ -1,12 +1,16 @@
 
 package oop_mangogarden;
 
+//import com.sun.istack.internal.logging.Logger;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,15 +44,15 @@ public class CreateBillController implements Initializable {
     @FXML
     private TableView<Bill> tableview;
     @FXML
-    private TableColumn<Bill, Integer> invoiceColumn;
+    private TableColumn<Bill, String> invoiceColumn;
     @FXML
     private TableColumn<Bill, String> productnameColumn;
     @FXML
-    private TableColumn<Bill, Integer> issuedateColumn;
+    private TableColumn<Bill, String> issuedateColumn;
     @FXML
-    private TableColumn<Bill, Integer> quantityColumn;
+    private TableColumn<Bill, String> quantityColumn;
     @FXML
-    private TableColumn<Bill, Float> totalpriceColumn;
+    private TableColumn<Bill, String> totalpriceColumn;
     
     ArrayList<Bill> createbillList;
     @FXML
@@ -60,11 +64,11 @@ public class CreateBillController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         createbillList = new ArrayList<Bill>();
         
-        invoiceColumn.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("invoice"));
+        invoiceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("invoice"));
         productnameColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("productName"));
-        issuedateColumn.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("issueDate"));
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<Bill,Integer>("quantity"));
-        totalpriceColumn.setCellValueFactory(new PropertyValueFactory<Bill,Float>("totalPrice"));
+        issuedateColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("issueDate"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("quantity"));
+        totalpriceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("totalPrice"));
         
     }    
 
@@ -79,40 +83,55 @@ public class CreateBillController implements Initializable {
     }
 
     @FXML
-    private void creatOnclick(ActionEvent event) {
-//        
-//        File f = null;
-//        FileOutputStream fos = null;
-//        ObjectOutputStream oos = null;
-//        try{
-//            f = new File("CreateBill_01.txt");
-//            if(f.exists()){
-//                fos = new FileOutputStream(f, true);
-//                oos = new ObjectOutputStream(fos);
-//                
-//            }
-//            else{
-//                fos = new FileOutputStream(f);
-//                oos = new ObjectOutputStream(fos);
-//            }
-//            //String customerName, String address, int issueDate
-//            //String productname, int quantity, int invoiceNo, Float totalPrice
-//            Float total = 100.00f;
-//            Bill b = new Bill(customernameTextfield.getText(), addressTextfield.getText(), 
-//                    Integer.parseInt(issuedateTextfield.getText()), productnameTextfield.getText(),
-//                    Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(invoiceTextfield.getText()), total);
-//            
-//            oos.writeObject(b); 
-//            
-//            customernameTextfield.clear(); addressTextfield.clear();
-//            issuedateTextfield.clear(); productnameTextfield.clear();
-//            quantityTextfield.clear(); invoiceTextfield.clear();
-//            
-//        }
-//        catch(IOException e){
-//            
-//            
-//        }
+    private void creatOnclick(ActionEvent event) throws Exception{
+        
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try{
+            f = new File("CreateBill_01.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f, true);
+                oos = new ObjectOutputStream(fos);
+                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+            
+//            System.out.println(customernameTextfield.getText());
+//            System.out.println(addressTextfield.getText());
+//            System.out.println(issuedateTextfield.getText());  // Problem here---
+//            System.out.println(productnameTextfield.getText());
+//            System.out.println(Integer.parseInt(quantityTextfield.getText()));
+//            System.out.println(Integer.parseInt(invoiceTextfield.getText()));
+            //System.out.println(total);
+
+            Float total = 100.00f;
+            Bill b = new Bill(customernameTextfield.getText(), addressTextfield.getText(), 
+                    Integer.parseInt(issuedateTextfield.getText()), productnameTextfield.getText(),
+                    Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(invoiceTextfield.getText()), total);
+            
+            oos.writeObject(b); 
+            
+            customernameTextfield.clear(); addressTextfield.clear();
+            issuedateTextfield.clear(); productnameTextfield.clear();
+            quantityTextfield.clear(); invoiceTextfield.clear();
+            
+        }
+        catch(IOException e){
+            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+    
+        }
+        finally{
+            try{
+                if(oos != null) oos.close();
+            }
+            catch(IOException e){
+                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
         
         
         

@@ -11,7 +11,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -48,7 +47,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void createaccOnclick(ActionEvent event) throws Exception{
-                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("FXMLCreateAccount.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("FXMLCreateAccount.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

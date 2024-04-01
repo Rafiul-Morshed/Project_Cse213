@@ -1,7 +1,9 @@
 
 package oop_mangogarden;
 
-public class Bill {
+import java.io.Serializable;
+
+public class Bill implements Serializable{
     private String customerName;
     private String address;
     private int issueDate;
