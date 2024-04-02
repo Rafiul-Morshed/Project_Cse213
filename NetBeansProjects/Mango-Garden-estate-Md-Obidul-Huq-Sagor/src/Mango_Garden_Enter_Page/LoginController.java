@@ -4,12 +4,17 @@
  */
 package Mango_Garden_Enter_Page;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -17,13 +22,6 @@ import javafx.scene.control.TextField;
  * @author md.obidulhuqsagor
  */
 public class LoginController implements Initializable {
-
-    @FXML
-    private TextField nameTextfield;
-    @FXML
-    private TextField idTextfield;
-    @FXML
-    private TextField passwordTextfield;
 
     /**
      * Initializes the controller class.
@@ -34,19 +32,21 @@ public class LoginController implements Initializable {
     }    
 
     @FXML
-    private void loginOnclick(ActionEvent event) {
+    private void loginSupplyChainManagerOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/SupplyChainManager_Sagor/mainSupplyChainManager.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
 
     @FXML
-    private void createaccOnclick(ActionEvent event) {
-    }
-
-    @FXML
-    private void loginSupplychainManagerOnClick(ActionEvent event) {
-    }
-
-    @FXML
-    private void loginHorticulturistOnClick(ActionEvent event) {
+    private void loginHorticulturistOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/horticulturist_Sagor/mainHorticulturist.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
     
 }

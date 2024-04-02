@@ -97,7 +97,7 @@ public class MainSupplyChainManagerController implements Initializable {
 
     @FXML
     private void returnFeedbackOnClick(ActionEvent event) throws IOException {
-          Parent mainSceneParent = FXMLLoader.load(getClass().getResource("returnAndFeedback.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("returnAndFeedback.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene1);
@@ -105,7 +105,12 @@ public class MainSupplyChainManagerController implements Initializable {
     }
 
     @FXML
-    private void logoutOnClick(ActionEvent event) {
+    private void logoutOnClick(ActionEvent event) throws IOException {
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Mango_Garden_Enter_Page/login.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene1);
+        window.show();
     }
     
 }

@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="horticulturist_Sagor.MainHorticulturistController">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="282.0">
+      <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="282.0">
          <children>
             <Button layoutX="39.0" layoutY="38.0" mnemonicParsing="false" onAction="#gardenOverviewOnClick" prefHeight="26.0" prefWidth="175.0" text="Garden Overview" />
             <Button layoutX="39.0" layoutY="79.0" mnemonicParsing="false" onAction="#monitorTreeHealthOnClick" prefHeight="26.0" prefWidth="175.0" text="Monitor Tree Health" />
@@ -21,7 +21,7 @@
             <Button layoutX="39.0" layoutY="331.0" mnemonicParsing="false" onAction="#FeedbackOnClick" prefHeight="26.0" prefWidth="175.0" text="Feedback" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="310.0" layoutY="10.0" prefHeight="405.0" prefWidth="300.0">
+      <AnchorPane layoutX="320.0" layoutY="20.0" prefHeight="405.0" prefWidth="300.0">
          <children>
             <Button layoutX="122.0" layoutY="290.0" mnemonicParsing="false" onAction="#logoutHorticulturistOnClick" text="Logout">
                <font>
