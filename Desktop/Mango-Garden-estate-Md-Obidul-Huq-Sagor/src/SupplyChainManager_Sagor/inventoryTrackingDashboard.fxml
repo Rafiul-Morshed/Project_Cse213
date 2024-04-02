@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SupplyChainManager_Sagor.InventoryTrackingDashboardController">
+   <children>
+      <TableView fx:id="ItTablefxid" layoutX="10.0" layoutY="71.0" prefHeight="200.0" prefWidth="591.0">
+         <columns>
+            <TableColumn fx:id="datefxid" prefWidth="120.0" text="Date" />
+            <TableColumn fx:id="orderfxid" prefWidth="101.0" text="Order Id" />
+            <TableColumn fx:id="customerNfxid" prefWidth="149.0" text="Customer Name" />
+            <TableColumn fx:id="Statusfxid" prefWidth="104.0" text="Status" />
+            <TableColumn fx:id="Amountfxid" prefWidth="125.0" text="Amount" />
+         </columns>
+      </TableView>
+      <AnchorPane layoutX="10.0" layoutY="19.0" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="BackItfxid" layoutX="533.0" layoutY="12.0" mnemonicParsing="false" onAction="#BackItOnAction" text="Back" />
+            <Text layoutX="184.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventory Tracking">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
