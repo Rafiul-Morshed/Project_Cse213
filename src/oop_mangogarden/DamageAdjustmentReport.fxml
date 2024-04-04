@@ -26,12 +26,6 @@
             <TableColumn fx:id="quantityColumn" prefWidth="79.0" text="Quantity" />
             <TableColumn fx:id="damagequantityColumn" prefWidth="137.0" text="Damage Quantity" />
             <TableColumn fx:id="adjustmentCOlumn" prefWidth="137.0" text="Adjustment" />
-            <TableColumn prefWidth="137.0" text="Adjustment" />
-            <TableColumn prefWidth="137.0" text="Adjustment" />
-            <TableColumn prefWidth="137.0" text="Adjustment" />
-            <TableColumn prefWidth="137.0" text="Adjustment" />
-            <TableColumn prefWidth="137.0" text="Adjustment" />
-            <TableColumn prefWidth="137.0" text="Adjustment" />
         </columns>
       </TableView>
    </children>

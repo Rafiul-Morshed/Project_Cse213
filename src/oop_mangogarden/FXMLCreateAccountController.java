@@ -78,16 +78,21 @@ public class FXMLCreateAccountController implements Initializable {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try{
-            f = new File(":NewLogin_01.bin");
+            f = new File("Login.bin");
             if(f.exists()){
+                //System.out.println("File Exists");
                 fos = new FileOutputStream(f, true);
-               // oos = new AppendableObjectOutputStream(fos);
+                oos = new AppendableObjectOutputStream(fos);
+                
                 
             }
             else{
+                //System.out.println("Not exsits");
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
+            
+
 //String employeeType, String employeeName, int employeeID, String gender, String contactNumber
             String gender="";
             if(maleRadio.isSelected())
@@ -98,12 +103,16 @@ public class FXMLCreateAccountController implements Initializable {
                 gender="Others";
         
             Employee e = new Employee(employeetypeCombobox.getValue(), nameTextfield.getText(), 
-                    Integer.parseInt(idTextfield.getText()), gender, contactTextfield.getText());
+                    idTextfield.getText(), gender, contactTextfield.getText(),
+                    passwordTextfield.getText());
             
             oos.writeObject(e);
             
             nameTextfield.clear(); idTextfield.clear();
-            contactTextfield.clear();
+            contactTextfield.clear(); passwordTextfield.clear();
+            
+            fos.close();
+            oos.close();
             
         }
         catch(IOException e){

@@ -3,8 +3,10 @@ package oop_mangogarden;
 
 //import com.sun.istack.internal.logging.Logger;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -24,11 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class CreateBillController implements Initializable {
 
     @FXML
@@ -64,12 +62,12 @@ public class CreateBillController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         createbillList = new ArrayList<Bill>();
         
-        invoiceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("invoice"));
-        productnameColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("productName"));
+        invoiceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("invoiceNo"));
+        productnameColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("productname"));
         issuedateColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("issueDate"));
         quantityColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("quantity"));
         totalpriceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("totalPrice"));
-        
+            
     }    
 
     @FXML
@@ -83,16 +81,16 @@ public class CreateBillController implements Initializable {
     }
 
     @FXML
-    private void creatOnclick(ActionEvent event) throws Exception{
+    private void creatOnclick(ActionEvent event) throws IOException{
         
         File f = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try{
-            f = new File("CreateBill_01.bin");
+            f = new File("CreateBill.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f, true);
-                oos = new ObjectOutputStream(fos);
+                oos = new AppendableObjectOutputStream(fos);
                 
             }
             else{
@@ -100,6 +98,7 @@ public class CreateBillController implements Initializable {
                 oos = new ObjectOutputStream(fos);
             }
             
+
 //            System.out.println(customernameTextfield.getText());
 //            System.out.println(addressTextfield.getText());
 //            System.out.println(issuedateTextfield.getText());  // Problem here---
@@ -118,6 +117,9 @@ public class CreateBillController implements Initializable {
             customernameTextfield.clear(); addressTextfield.clear();
             issuedateTextfield.clear(); productnameTextfield.clear();
             quantityTextfield.clear(); invoiceTextfield.clear();
+            
+            fos.close();
+            oos.close();
             
         }
         catch(IOException e){
@@ -150,9 +152,39 @@ public class CreateBillController implements Initializable {
 //        
 //                );
     }
+    
+    @FXML
+    private void loadCreatbillFile(){
+        //tableview.clear();
+        ObjectInputStream ois = null;
+        try{
+            Bill i;
+            ois = new ObjectInputStream(new FileInputStream("CreateBill.bin"));
+            while(true){
+                i = (Bill) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
 
     @FXML
-    private void shownewbillOnclick(ActionEvent event) {
+    private void shownewbillOnclick(ActionEvent event) throws Exception{
+        loadCreatbillFile();
+
+//                for(Bill i: createbillList){
+//            tableview.getItems().add(i);
+        
     }
     
-}
+    }
+

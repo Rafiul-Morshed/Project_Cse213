@@ -4,7 +4,11 @@
  */
 package oop_mangogarden;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -25,30 +30,39 @@ import javafx.stage.Stage;
 public class DamageAdjustmentReportController implements Initializable {
 
     @FXML
-    private TableView<?> tableview;
+    private TableView<DamageAdjust> tableview;
     @FXML
-    private TableColumn<?, ?> drivernameColumn;
+    private TableColumn<DamageAdjust, String> drivernameColumn;
     @FXML
-    private TableColumn<?, ?> platenoColumn;
+    private TableColumn<DamageAdjust, String> platenoColumn;
     @FXML
-    private TableColumn<?, ?> dateColumn;
+    private TableColumn<DamageAdjust, String> dateColumn;
     @FXML
-    private TableColumn<?, ?> destinationColumn;
+    private TableColumn<DamageAdjust, String> destinationColumn;
     @FXML
-    private TableColumn<?, ?> productidColumn;
+    private TableColumn<DamageAdjust, String> productidColumn;
     @FXML
-    private TableColumn<?, ?> quantityColumn;
+    private TableColumn<DamageAdjust, String> quantityColumn;
     @FXML
-    private TableColumn<?, ?> damagequantityColumn;
+    private TableColumn<DamageAdjust, String> damagequantityColumn;
     @FXML
-    private TableColumn<?, ?> adjustmentCOlumn;
+    private TableColumn<DamageAdjust, String> adjustmentCOlumn;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<DamageAdjust> damageList;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        damageList = new ArrayList<DamageAdjust>();
+        
+        drivernameColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("Drivername"));
+        platenoColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("plateno"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("date"));
+        destinationColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("destination"));
+        productidColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("productID"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("quantity"));
+        damagequantityColumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("damagequantity"));
+        adjustmentCOlumn.setCellValueFactory(new PropertyValueFactory<DamageAdjust,String>("adjustment"));
+        
     }    
 
     @FXML
@@ -60,9 +74,34 @@ public class DamageAdjustmentReportController implements Initializable {
         window.setScene(scene1);
         window.show();   
     }
+    
+    private void loadDamageFile(){
+        //tableview.clear();
+        ObjectInputStream ois = null;
+        try{
+            DamageAdjust i;
+            ois = new ObjectInputStream(new FileInputStream("Damage.bin"));
+            while(true){
+                i = (DamageAdjust) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void showreportOnclick(ActionEvent event) {
+                loadDamageFile();
+
     }
     
 }

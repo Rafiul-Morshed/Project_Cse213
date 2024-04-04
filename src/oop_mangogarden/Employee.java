@@ -1,23 +1,26 @@
 
 package oop_mangogarden;
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable{
     private String employeeType;
     private String employeeName;
-    private int employeeID;
+    private String employeeID;
     private String gender;
     private String contactNumber;
-    
+    private String password;
 
     public Employee() {
     }
 
-    public Employee(String employeeType, String employeeName, int employeeID, String gender, String contactNumber) {
+    public Employee(String employeeType, String employeeName, String employeeID, String gender, String contactNumber, String password) {
         this.employeeType = employeeType;
         this.employeeName = employeeName;
         this.employeeID = employeeID;
         this.gender = gender;
         this.contactNumber = contactNumber;
+        this.password = password;
         
         
     }
@@ -38,11 +41,11 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public int getEmployeeID() {
+    public String getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(int employeeID) {
+    public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -61,17 +64,43 @@ public class Employee {
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
-
-    @Override
-    public String toString() {
-        return "Employee{" + "employeeType=" + employeeType + ", employeeName=" + employeeName + ", employeeID=" + employeeID + ", gender=" + gender + ", contactNumber=" + contactNumber + '}';
+    
+    public String getPassword(){
+        return password;
+    }
+    
+    public void setPassword(String password){
+        this.password = password;
+    }
+  
+    public boolean isemployeeType(String s) {
+        if (s.equalsIgnoreCase(this.employeeType))
+            return true;
+        else
+            return false;
     }
 
-    
+    public boolean isemployeeName(String s) {
+        if (s.equalsIgnoreCase(this.employeeName))
+            return true;
+        else
+            return false;
+    }    
 
-
+    public boolean isemployeeID(String s) {
+        if (s.equalsIgnoreCase(this.employeeID))
+            return true;
+        else
+            return false;
+    }
     
-    
+    public boolean isPassword(String s) {
+        if (s.equalsIgnoreCase(this.password))
+            return true;
+        else
+            return false;
+    }
+         
     
     
 }

@@ -13,8 +13,8 @@ public class Salary extends Employee{
         this.salary = salary;
     }
 
-    public Salary(int salary, String employeeType, String employeeName, int employeeID, String gender, String contactNumber) {
-        super(employeeType, employeeName, employeeID, gender, contactNumber);
+    public Salary(int salary, String employeeType, String employeeName, String employeeID, String gender, String contactNumber, String password) {
+        super(employeeType, employeeName, employeeID, gender, contactNumber, password);
         this.salary = salary;
     }
 
