@@ -1,7 +1,11 @@
 
 package oop_mangogarden;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,34 +16,37 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class PurchaseOrderController implements Initializable {
 
     @FXML
-    private TableView<?> tableview;
+    private TableView<PurchaseProduct> tableview;
     @FXML
-    private TableColumn<?, ?> orderidColumn;
+    private TableColumn<PurchaseProduct, String> productnameColumn;
     @FXML
-    private TableColumn<?, ?> productnameColumn;
+    private TableColumn<PurchaseProduct, String> issuedateColumn;
     @FXML
-    private TableColumn<?, ?> issuedateColumn;
+    private TableColumn<PurchaseProduct, String> quantityColumn;
     @FXML
-    private TableColumn<?, ?> quantityColumn;
+    private TableColumn<PurchaseProduct, String> priceColumn;
     @FXML
-    private TableColumn<?, ?> priceColumn;
+    private TableColumn<PurchaseProduct, String> purchaseidColumn;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<PurchaseProduct> orderList;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        orderList = new ArrayList<PurchaseProduct>();
+        
+        purchaseidColumn.setCellValueFactory(new PropertyValueFactory<PurchaseProduct,String>("purchaseID"));
+        productnameColumn.setCellValueFactory(new PropertyValueFactory<PurchaseProduct,String>("productName"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<PurchaseProduct,String>("quantity"));
+        issuedateColumn.setCellValueFactory(new PropertyValueFactory<PurchaseProduct,String>("issueDate"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<PurchaseProduct,String>("price"));
+        
     }    
 
     @FXML
@@ -51,9 +58,35 @@ public class PurchaseOrderController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
-
+    
+    @FXML
+    private void loadPurchaseOrderFile(){
+        //tableview.clear();
+        ObjectInputStream ois = null;
+        try{
+            PurchaseProduct i;
+            ois = new ObjectInputStream(new FileInputStream("PurchaseOrder.bin"));
+            while(true){
+                i = (PurchaseProduct) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+    
+    
     @FXML
     private void showallorderOnclick(ActionEvent event) {
+        loadPurchaseOrderFile();
     }
     
 }

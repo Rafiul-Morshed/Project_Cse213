@@ -1,11 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,11 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class SupplierInfoController implements Initializable {
 
     @FXML
@@ -32,21 +31,17 @@ public class SupplierInfoController implements Initializable {
     @FXML
     private TextField addressTextfield;
     @FXML
-    private TextField idTextfield;
+    private TableView<Supplier> tableview;
     @FXML
-    private TableView<?> tableview;
+    private TableColumn<Supplier, String> idColumn;
     @FXML
-    private TableColumn<?, ?> idColumn;
+    private TableColumn<Supplier, String> nameColumn;
     @FXML
-    private TableColumn<?, ?> nameColumn;
+    private TableColumn<Supplier, String> contactColumn;
     @FXML
-    private TableColumn<?, ?> contactColumn;
-    @FXML
-    private TableColumn<?, ?> addressColumn;
+    private TableColumn<Supplier, String> addressColumn;
 
-    /**
-     * Initializes the controller class.
-     */
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -63,7 +58,46 @@ public class SupplierInfoController implements Initializable {
     }
 
     @FXML
-    private void saveinfoOnclick(ActionEvent event) {
+    private void saveinfoOnclick(ActionEvent event) throws IOException{
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try{
+            f = new File("Supplier.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+
+            Supplier d = new Supplier(nameTextfield.getText(), contactTextfield.getText(),
+                    addressTextfield.getText());
+            
+            oos.writeObject(d); 
+            
+            nameTextfield.clear(); contactTextfield.clear();
+            addressTextfield.clear();
+            
+            fos.close();
+            oos.close();
+            
+        }
+        catch(IOException e){
+            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+    
+        }
+        finally{
+            try{
+                if(oos != null) oos.close();
+            }
+            catch(IOException e){
+                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
     }
 
     @FXML

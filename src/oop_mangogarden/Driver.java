@@ -1,14 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package oop_mangogarden;
 
-/**
- *
- * @author User-pc
- */
-public class Driver {
+import java.io.Serializable;
+
+
+public class Driver implements Serializable{
     private String driverName;
     private String ContactNumber;
 

@@ -55,7 +55,7 @@ public class DamageAdjustmentController implements Initializable {
 
     @FXML
     private void backOnclick(ActionEvent event) throws Exception{
-                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

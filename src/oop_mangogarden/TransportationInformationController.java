@@ -1,11 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,13 +22,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
 public class TransportationInformationController implements Initializable {
 
     @FXML
@@ -38,31 +40,38 @@ public class TransportationInformationController implements Initializable {
     @FXML
     private TextField destinationTextfield;
     @FXML
-    private TableView<?> tableview;
+    private TableView<Transport> tableview;
     @FXML
-    private TableColumn<?, ?> productidColumn;
+    private TableColumn<Transport, String> productidColumn;
     @FXML
-    private TableColumn<?, ?> drivernameColumn;
+    private TableColumn<Transport, String> drivernameColumn;
     @FXML
-    private TableColumn<?, ?> dispatchdateColumn;
+    private TableColumn<Transport, String> dispatchdateColumn;
     @FXML
-    private TableColumn<?, ?> chassisnoOnclick;
+    private TableColumn<Transport, String> chassisnoOnclick;
     @FXML
-    private TableColumn<?, ?> platenoOnclick;
+    private TableColumn<Transport, String> platenoOnclick;
     @FXML
-    private TableColumn<?, ?> destinationOnclick;
+    private TableColumn<Transport, String> destinationOnclick;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<Transport> TransportationInfoList;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        TransportationInfoList = new ArrayList<Transport>();
+        
+        productidColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("productID"));
+        drivernameColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("DriverName"));
+        dispatchdateColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("dispatchDate"));
+        chassisnoOnclick.setCellValueFactory(new PropertyValueFactory<Transport,String>("chassisNo"));
+        platenoOnclick.setCellValueFactory(new PropertyValueFactory<Transport,String>("plateNo"));
+        destinationOnclick.setCellValueFactory(new PropertyValueFactory<Transport,String>("destination"));
+
     }    
 
     @FXML
     private void backOnclick(ActionEvent event) throws Exception{
-                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
@@ -71,11 +80,77 @@ public class TransportationInformationController implements Initializable {
     }
 
     @FXML
-    private void confieminfoOnclick(ActionEvent event) {
+    private void confieminfoOnclick(ActionEvent event) throws IOException{
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try{
+            f = new File("TransportationInfo.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+//String DriverName, String productID, String dispatchDate, String destination, String chassisNo, String plateNo
+            Transport d = new Transport(drivernameTextfield.getText(), productidTextfield.getText(),
+                    dispatchdateTextfield.getText(), destinationTextfield.getText(),
+                    chassisnoTextfield.getText(), platenoTextfield.getText());
+            
+            oos.writeObject(d); 
+            
+            drivernameTextfield.clear(); productidTextfield.clear();
+            dispatchdateTextfield.clear(); destinationTextfield.clear();
+            chassisnoTextfield.clear(); platenoTextfield.clear();
+            
+            fos.close();
+            oos.close();
+            
+        }
+        catch(IOException e){
+            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+    
+        }
+        finally{
+            try{
+                if(oos != null) oos.close();
+            }
+            catch(IOException e){
+                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
     }
+    
+   
+    private void loadTransportationInfoFile(){
+        //tableview.clear();
+        ObjectInputStream ois = null;
+        try{
+            Transport i;
+            ois = new ObjectInputStream(new FileInputStream("TransportationInfo.bin"));
+            while(true){
+                i = (Transport) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }    
 
     @FXML
     private void showallinfoOnclick(ActionEvent event) {
+        loadTransportationInfoFile();
     }
     
 }

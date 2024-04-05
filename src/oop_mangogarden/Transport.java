@@ -1,7 +1,9 @@
 
 package oop_mangogarden;
 
-public class Transport extends Vehicle{
+import java.io.Serializable;
+
+public class Transport extends Vehicle implements Serializable{
     private String DriverName;
     private String productID;
     private String dispatchDate;

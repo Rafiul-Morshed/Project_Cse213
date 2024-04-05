@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
 import java.io.FileInputStream;
@@ -22,11 +19,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
 public class DamageAdjustmentReportController implements Initializable {
 
     @FXML
@@ -75,6 +67,7 @@ public class DamageAdjustmentReportController implements Initializable {
         window.show();   
     }
     
+    @FXML
     private void loadDamageFile(){
         //tableview.clear();
         ObjectInputStream ois = null;

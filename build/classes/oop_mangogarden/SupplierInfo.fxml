@@ -22,10 +22,8 @@
       <TextField fx:id="contactTextfield" layoutX="186.0" layoutY="144.0" />
       <Label layoutX="64.0" layoutY="198.0" text="Address:" />
       <TextField fx:id="addressTextfield" layoutX="186.0" layoutY="193.0" />
-      <Label layoutX="454.0" layoutY="101.0" text="Supplier ID:" />
-      <TextField fx:id="idTextfield" layoutX="553.0" layoutY="96.0" />
-      <Button layoutX="454.0" layoutY="144.0" mnemonicParsing="false" onAction="#saveinfoOnclick" prefHeight="31.0" prefWidth="288.0" text="Save Information" />
-      <Button layoutX="454.0" layoutY="193.0" mnemonicParsing="false" onAction="#showinfoOnclick" prefHeight="31.0" prefWidth="288.0" text="Show Information" />
+      <Button layoutX="454.0" layoutY="112.0" mnemonicParsing="false" onAction="#saveinfoOnclick" prefHeight="31.0" prefWidth="288.0" text="Save Information" />
+      <Button layoutX="454.0" layoutY="178.0" mnemonicParsing="false" onAction="#showinfoOnclick" prefHeight="31.0" prefWidth="288.0" text="Show Information" />
       <TableView fx:id="tableview" layoutX="64.0" layoutY="266.0" prefHeight="200.0" prefWidth="681.0">
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="124.0" text="Supplier ID" />
