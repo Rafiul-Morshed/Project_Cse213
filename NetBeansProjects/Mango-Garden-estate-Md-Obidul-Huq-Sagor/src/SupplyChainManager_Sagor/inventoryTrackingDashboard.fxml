@@ -9,13 +9,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SupplyChainManager_Sagor.InventoryTrackingDashboardController">
    <children>
-      <TableView fx:id="ItTablefxid" layoutX="10.0" layoutY="71.0" prefHeight="200.0" prefWidth="591.0">
+      <TableView fx:id="ItTablefxid" layoutX="10.0" layoutY="71.0" prefHeight="264.0" prefWidth="591.0">
          <columns>
-            <TableColumn fx:id="datefxid" prefWidth="120.0" text="Date" />
-            <TableColumn fx:id="orderfxid" prefWidth="101.0" text="Order Id" />
-            <TableColumn fx:id="customerNfxid" prefWidth="149.0" text="Customer Name" />
-            <TableColumn fx:id="Statusfxid" prefWidth="104.0" text="Status" />
-            <TableColumn fx:id="Amountfxid" prefWidth="125.0" text="Amount" />
+            <TableColumn fx:id="datefxid" prefWidth="144.0" text="Date" />
+            <TableColumn fx:id="customerNamefxid" prefWidth="119.0" text="Customer Name" />
+            <TableColumn fx:id="productNamefxid" prefWidth="133.0" text="Product Name" />
+            <TableColumn fx:id="quantityfxid" prefWidth="92.0" text="Quantity" />
+            <TableColumn fx:id="amountfxid" prefWidth="111.0" text="Amount" />
          </columns>
       </TableView>
       <AnchorPane layoutX="10.0" layoutY="19.0" prefHeight="50.0" prefWidth="600.0">
@@ -28,5 +28,6 @@
             </Text>
          </children>
       </AnchorPane>
+      <Button layoutX="531.0" layoutY="339.0" mnemonicParsing="false" onAction="#itPrintOnClick" text="Print" />
    </children>
 </AnchorPane>

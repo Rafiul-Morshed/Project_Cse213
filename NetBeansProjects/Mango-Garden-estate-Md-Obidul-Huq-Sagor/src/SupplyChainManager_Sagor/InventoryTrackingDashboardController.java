@@ -31,15 +31,15 @@ public class InventoryTrackingDashboardController implements Initializable {
     @FXML
     private TableColumn<?, ?> datefxid;
     @FXML
-    private TableColumn<?, ?> orderfxid;
-    @FXML
-    private TableColumn<?, ?> customerNfxid;
-    @FXML
-    private TableColumn<?, ?> Statusfxid;
-    @FXML
-    private TableColumn<?, ?> Amountfxid;
-    @FXML
     private Button BackItfxid;
+    @FXML
+    private TableColumn<?, ?> customerNamefxid;
+    @FXML
+    private TableColumn<?, ?> productNamefxid;
+    @FXML
+    private TableColumn<?, ?> quantityfxid;
+    @FXML
+    private TableColumn<?, ?> amountfxid;
 
     /**
      * Initializes the controller class.
@@ -57,6 +57,10 @@ public class InventoryTrackingDashboardController implements Initializable {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene1);
         window.show();
+    }
+
+    @FXML
+    private void itPrintOnClick(ActionEvent event) {
     }
     
 }
