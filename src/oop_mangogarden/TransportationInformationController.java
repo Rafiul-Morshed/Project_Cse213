@@ -54,14 +54,14 @@ public class TransportationInformationController implements Initializable {
     @FXML
     private TableColumn<Transport, String> destinationOnclick;
 
-    ArrayList<Transport> TransportationInfoList;
+    ArrayList<Transport> transportInfoList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TransportationInfoList = new ArrayList<Transport>();
+        transportInfoList = new ArrayList<Transport>();
         
         productidColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("productID"));
-        drivernameColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("DriverName"));
+        drivernameColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("driverName"));
         dispatchdateColumn.setCellValueFactory(new PropertyValueFactory<Transport,String>("dispatchDate"));
         chassisnoOnclick.setCellValueFactory(new PropertyValueFactory<Transport,String>("chassisNo"));
         platenoOnclick.setCellValueFactory(new PropertyValueFactory<Transport,String>("plateNo"));
@@ -80,12 +80,12 @@ public class TransportationInformationController implements Initializable {
     }
 
     @FXML
-    private void confieminfoOnclick(ActionEvent event) throws IOException{
+    private void confirminfoOnclick(ActionEvent event) throws IOException{
         File f = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try{
-            f = new File("TransportationInfo.bin");
+            f = new File("TransportInformation.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -95,13 +95,15 @@ public class TransportationInformationController implements Initializable {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
+
+                      
 //String DriverName, String productID, String dispatchDate, String destination, String chassisNo, String plateNo
             Transport d = new Transport(drivernameTextfield.getText(), productidTextfield.getText(),
                     dispatchdateTextfield.getText(), destinationTextfield.getText(),
-                    chassisnoTextfield.getText(), platenoTextfield.getText());
+            chassisnoTextfield.getText(), platenoTextfield.getText());
             
             oos.writeObject(d); 
-            
+              
             drivernameTextfield.clear(); productidTextfield.clear();
             dispatchdateTextfield.clear(); destinationTextfield.clear();
             chassisnoTextfield.clear(); platenoTextfield.clear();
@@ -122,15 +124,15 @@ public class TransportationInformationController implements Initializable {
                 Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
+
     }
     
-   
-    private void loadTransportationInfoFile(){
-        //tableview.clear();
+    @FXML
+    private void loadTransportInfoFile(){
         ObjectInputStream ois = null;
         try{
             Transport i;
-            ois = new ObjectInputStream(new FileInputStream("TransportationInfo.bin"));
+            ois = new ObjectInputStream(new FileInputStream("TransportInformation.bin"));
             while(true){
                 i = (Transport) ois.readObject();
                 tableview.getItems().add(i);
@@ -146,11 +148,11 @@ public class TransportationInformationController implements Initializable {
             }
             e.printStackTrace();
         }
-    }    
+    }
 
     @FXML
-    private void showallinfoOnclick(ActionEvent event) {
-        loadTransportationInfoFile();
+    private void showallinfoOnclick(ActionEvent event){
+        loadTransportInfoFile();
     }
     
 }

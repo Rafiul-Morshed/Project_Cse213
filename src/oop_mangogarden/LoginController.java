@@ -16,11 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class LoginController implements Initializable {
 
     @FXML
@@ -50,6 +46,7 @@ public class LoginController implements Initializable {
             Employee emp;
             while(true){
                 emp = (Employee) log.readObject();
+                
                 if (emp.isemployeeType(employeetypeCombobox.getValue()) && 
                         emp.isemployeeName(nameTextfield.getText()) && 
                         emp.isemployeeID(idTextfield.getText()) &&
@@ -62,6 +59,13 @@ public class LoginController implements Initializable {
                         emp.getEmployeeName(), emp.getEmployeeID(), emp.getPassword());
                         loginAccountant(a1);
                     }
+                    
+                    if(option.equalsIgnoreCase("Transport Operator")){
+                        transportOperator b1 = new transportOperator(emp.getEmployeeType(),
+                        emp.getEmployeeName(), emp.getEmployeeID(), emp.getPassword());
+                        loginTransportOperator(b1);
+                        
+                    }
                 }
             }
         }
@@ -70,7 +74,7 @@ public class LoginController implements Initializable {
         }
    }
     
-   public void loginAccountant(accountant a)throws Exception{
+    public void loginAccountant(accountant a)throws Exception{
        Stage stage = (Stage) idTextfield.getScene().getWindow();
        stage.close();
        Stage primarystage = new Stage();
@@ -78,11 +82,25 @@ public class LoginController implements Initializable {
        loader.setLocation(getClass().getResource("AccountantDashboard.fxml"));
        Parent root = loader.load();
        primarystage.setTitle("Accountant");
-       Scene scene = new Scene(root,956,630);
+       Scene scene = new Scene(root,630,430);
        primarystage.setScene(scene);
        primarystage.show();
    } 
-
+   
+    public void loginTransportOperator(transportOperator a) throws Exception{
+        Stage stage = (Stage) idTextfield.getScene().getWindow();
+        stage.close();
+        Stage primarystage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("TransportOperatorDashboard.fxml"));
+        Parent root = loader.load();
+        primarystage.setTitle("Transport Operator");
+        Scene scene = new Scene(root,630,430);
+        primarystage.setScene(scene);
+        primarystage.show();
+        
+    }
+   
     @FXML
     private void createaccOnclick(ActionEvent event) throws Exception{
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("FXMLCreateAccount.fxml"));

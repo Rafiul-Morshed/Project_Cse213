@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Bill implements Serializable{
     private String customerName;
     private String address;
-    private int issueDate;
+    private String issueDate;
     private String productname;
     private int quantity;
     private int invoiceNo;
@@ -15,7 +15,7 @@ public class Bill implements Serializable{
     public Bill() {
     }
 
-    public Bill(String customerName, String address, int issueDate, String productname, int quantity, int invoiceNo, Float totalPrice) {
+    public Bill(String customerName, String address, String issueDate, String productname, int quantity, int invoiceNo, Float totalPrice) {
         this.customerName = customerName;
         this.address = address;
         this.issueDate = issueDate;
@@ -41,11 +41,11 @@ public class Bill implements Serializable{
         this.address = address;
     }
 
-    public int getIssueDate() {
+    public String getIssueDate() {
         return issueDate;
     }
 
-    public void setIssueDate(int issueDate) {
+    public void setIssueDate(String issueDate) {
         this.issueDate = issueDate;
     }
 

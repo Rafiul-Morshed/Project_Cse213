@@ -26,10 +26,9 @@
       <Button layoutX="454.0" layoutY="178.0" mnemonicParsing="false" onAction="#showinfoOnclick" prefHeight="31.0" prefWidth="288.0" text="Show Information" />
       <TableView fx:id="tableview" layoutX="64.0" layoutY="266.0" prefHeight="200.0" prefWidth="681.0">
         <columns>
-          <TableColumn fx:id="idColumn" prefWidth="124.0" text="Supplier ID" />
-          <TableColumn fx:id="nameColumn" prefWidth="170.0" text="Supplier Name" />
-            <TableColumn fx:id="contactColumn" prefWidth="147.0" text="Contact" />
-            <TableColumn fx:id="addressColumn" prefWidth="239.0" text="Address" />
+          <TableColumn fx:id="nameColumn" prefWidth="207.0" text="Supplier Name" />
+            <TableColumn fx:id="contactColumn" prefWidth="177.0" text="Contact" />
+            <TableColumn fx:id="addressColumn" prefWidth="296.0" text="Address" />
         </columns>
       </TableView>
    </children>

@@ -1,13 +1,18 @@
 
 package oop_mangogarden;
 
-public class Vehicle {
+import java.io.Serializable;
+
+public class Vehicle implements Serializable{
     private String chassisNo;
     private String plateNo;
 
     public Vehicle(String chassisNo, String plateNo) {
         this.chassisNo = chassisNo;
         this.plateNo = plateNo;
+        
+//        System.out.println("Vehicle"+chassisNo);
+//        System.out.println("Vehicle"+plateNo);
     }
 
     public String getChassisNo() {
@@ -16,6 +21,7 @@ public class Vehicle {
 
     public void setChassisNo(String chassisNo) {
         this.chassisNo = chassisNo;
+        //System.out.println("A"+chassisNo);
     }
 
     public String getPlateNo() {

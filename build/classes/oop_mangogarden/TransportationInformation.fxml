@@ -38,7 +38,7 @@
             <TableColumn fx:id="destinationOnclick" prefWidth="165.0" text="Destination" />
         </columns>
       </TableView>
-      <Button layoutX="486.0" layoutY="250.0" mnemonicParsing="false" onAction="#confieminfoOnclick" prefHeight="31.0" prefWidth="212.0" text="Confirm Information" />
+      <Button layoutX="486.0" layoutY="250.0" mnemonicParsing="false" onAction="#confirminfoOnclick" prefHeight="31.0" prefWidth="212.0" text="Confirm Information" />
       <Button layoutX="99.0" layoutY="250.0" mnemonicParsing="false" onAction="#showallinfoOnclick" prefHeight="31.0" prefWidth="212.0" text="Show All Information" />
    </children>
 </AnchorPane>

@@ -2,27 +2,39 @@
 package oop_mangogarden;
 
 import java.io.Serializable;
-
 public class Transport extends Vehicle implements Serializable{
-    private String DriverName;
+    private String driverName;
     private String productID;
     private String dispatchDate;
     private String destination;
+    
+    public Transport(String chassisNo, String plateNo){
+        super(chassisNo, plateNo);
+    }
+
 
     public Transport(String DriverName, String productID, String dispatchDate, String destination, String chassisNo, String plateNo) {
         super(chassisNo, plateNo);
-        this.DriverName = DriverName;
+        this.driverName = DriverName;
         this.productID = productID;
         this.dispatchDate = dispatchDate;
         this.destination = destination;
+        
+//        System.out.println(DriverName);
+//        System.out.println(productID);
+//        System.out.println(dispatchDate);
+//        System.out.println(destination);
+//        System.out.println(chassisNo);
+//        System.out.println(plateNo);
+        
     }
 
     public String getDriverName() {
-        return DriverName;
+        return driverName;
     }
 
     public void setDriverName(String DriverName) {
-        this.DriverName = DriverName;
+        this.driverName = DriverName;
     }
 
     public String getProductID() {
@@ -51,7 +63,7 @@ public class Transport extends Vehicle implements Serializable{
 
     @Override
     public String toString() {
-        return "Transport{" + "DriverName=" + DriverName + ", productID=" + productID + ", dispatchDate=" + dispatchDate + ", destination=" + destination + '}';
+        return "Transport{" + "DriverName=" + driverName + ", productID=" + productID + ", dispatchDate=" + dispatchDate + ", destination=" + destination + '}';
     }
     
     

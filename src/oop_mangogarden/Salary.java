@@ -1,38 +1,58 @@
 
 package oop_mangogarden;
 
-public class Salary extends Employee{
-    private int salary;
+import java.io.Serializable;
 
-//    public Salary(String employeeType, String employeeName, int employeeID) {
-//        super(employeeType, employeeName, employeeID);
-//    }
+public class Salary implements Serializable{
+    private String employeeType;
+    private String name;
+    private String ID;
+    private String salary;
 
-
-    public Salary(int salary) {
+    public Salary(String employeeType, String name, String ID, String salary) {
+        this.employeeType = employeeType;
+        this.name = name;
+        this.ID = ID;
         this.salary = salary;
     }
 
-    public Salary(int salary, String employeeType, String employeeName, String employeeID, String gender, String contactNumber, String password) {
-        super(employeeType, employeeName, employeeID, gender, contactNumber, password);
-        this.salary = salary;
+    public String getEmployeeType() {
+        return employeeType;
     }
 
-    public int getSalary() {
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
     @Override
     public String toString() {
-        return "Salary{" + "salary=" + salary + '}';
+        return "Salary{" + "employeeType=" + employeeType + ", name=" + name + ", ID=" + ID + ", salary=" + salary + '}';
     }
 
-    
-    
-    
+ 
     
 }

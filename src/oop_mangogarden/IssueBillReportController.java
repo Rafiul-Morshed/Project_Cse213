@@ -1,10 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,34 +16,35 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class IssueBillReportController implements Initializable {
 
     @FXML
-    private TableView<?> tableview;
+    private TableView<Bill> tableview;
     @FXML
-    private TableColumn<?, ?> invoiceColumn;
+    private TableColumn<Bill, String> invoiceColumn;
     @FXML
-    private TableColumn<?, ?> productnameColumn;
+    private TableColumn<Bill, String> productnameColumn;
     @FXML
-    private TableColumn<?, ?> issuedateColumn;
+    private TableColumn<Bill, String> issuedateColumn;
     @FXML
-    private TableColumn<?, ?> quantityColumn;
+    private TableColumn<Bill, String> quantityColumn;
     @FXML
-    private TableColumn<?, ?> totalpriceColumn;
+    private TableColumn<Bill, String> totalpriceColumn;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<Bill> createbillList;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        createbillList = new ArrayList<Bill>();
+        
+        invoiceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("invoiceNo"));
+        productnameColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("productname"));
+        issuedateColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("issueDate"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("quantity"));
+        totalpriceColumn.setCellValueFactory(new PropertyValueFactory<Bill,String>("totalPrice"));
     }    
 
     @FXML
@@ -54,9 +56,33 @@ public class IssueBillReportController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+    
+        @FXML
+    private void loadCreatbillFile(){
+        ObjectInputStream ois = null;
+        try{
+            Bill i;
+            ois = new ObjectInputStream(new FileInputStream("CreateBill.bin"));
+            while(true){
+                i = (Bill) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void showissuebillOnclick(ActionEvent event) {
+        loadCreatbillFile();
     }
     
 }

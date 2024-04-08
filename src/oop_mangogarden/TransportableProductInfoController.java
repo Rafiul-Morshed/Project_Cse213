@@ -56,5 +56,9 @@ public class TransportableProductInfoController implements Initializable {
         window.setScene(scene1);
         window.show();
     }
+
+    @FXML
+    private void showproductOnclick(ActionEvent event) {
+    }
     
 }

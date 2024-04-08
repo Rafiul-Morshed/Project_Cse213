@@ -2,10 +2,13 @@
 package oop_mangogarden;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
@@ -33,18 +37,21 @@ public class SupplierInfoController implements Initializable {
     @FXML
     private TableView<Supplier> tableview;
     @FXML
-    private TableColumn<Supplier, String> idColumn;
-    @FXML
     private TableColumn<Supplier, String> nameColumn;
     @FXML
     private TableColumn<Supplier, String> contactColumn;
     @FXML
     private TableColumn<Supplier, String> addressColumn;
 
+    ArrayList<Supplier> SupplierList;
    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        SupplierList = new ArrayList<Supplier>();
+        
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Supplier,String>("supplierName"));
+        contactColumn.setCellValueFactory(new PropertyValueFactory<Supplier,String>("contact"));
+        addressColumn.setCellValueFactory(new PropertyValueFactory<Supplier,String>("address"));
     }    
 
     @FXML
@@ -101,7 +108,31 @@ public class SupplierInfoController implements Initializable {
     }
 
     @FXML
+    private void loadSupplierInfoFile(){
+        ObjectInputStream ois = null;
+        try{
+            Supplier i;
+            ois = new ObjectInputStream(new FileInputStream("Supplier.bin"));
+            while(true){
+                i = (Supplier) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
     private void showinfoOnclick(ActionEvent event) {
+        loadSupplierInfoFile();
     }
     
 }

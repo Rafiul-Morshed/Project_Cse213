@@ -87,7 +87,7 @@ public class CreateBillController implements Initializable {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try{
-            f = new File("CreateBill.bin");
+            f = new File("Createbill.bin");
             if(f.exists()){
                 fos = new FileOutputStream(f, true);
                 oos = new AppendableObjectOutputStream(fos);
@@ -107,12 +107,13 @@ public class CreateBillController implements Initializable {
 //            System.out.println(Integer.parseInt(invoiceTextfield.getText()));
             //System.out.println(total);
 
+// String customerName, String address, int issueDate, String productname, int quantity, int invoiceNo, Float totalPrice
             Float total = 100.00f;
-            Bill b = new Bill(customernameTextfield.getText(), addressTextfield.getText(), 
-                    Integer.parseInt(issuedateTextfield.getText()), productnameTextfield.getText(),
-                    Integer.parseInt(quantityTextfield.getText()), Integer.parseInt(invoiceTextfield.getText()), total);
+            Bill d = new Bill(customernameTextfield.getText(), addressTextfield.getText(),
+                    issuedateTextfield.getText(), productnameTextfield.getText(),
+            Integer.parseInt(quantityTextfield.getText()),Integer.parseInt(invoiceTextfield.getText()), total );
             
-            oos.writeObject(b); 
+            oos.writeObject(d); 
             
             customernameTextfield.clear(); addressTextfield.clear();
             issuedateTextfield.clear(); productnameTextfield.clear();
@@ -155,7 +156,6 @@ public class CreateBillController implements Initializable {
     
     @FXML
     private void loadCreatbillFile(){
-        //tableview.clear();
         ObjectInputStream ois = null;
         try{
             Bill i;

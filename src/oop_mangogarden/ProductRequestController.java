@@ -1,11 +1,17 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,13 +22,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class ProductRequestController implements Initializable {
 
     @FXML
@@ -30,17 +33,17 @@ public class ProductRequestController implements Initializable {
     @FXML
     private TextField contactTextfield;
     @FXML
-    private TableView<?> tableview;
+    private TableView<ProductRequest> tableview;
     @FXML
-    private TableColumn<?, ?> employeeidColumn;
+    private TableColumn<ProductRequest, String> employeeidColumn;
     @FXML
-    private TableColumn<?, ?> contactColumn;
+    private TableColumn<ProductRequest, String> contactColumn;
     @FXML
-    private TableColumn<?, ?> productidColumn;
+    private TableColumn<ProductRequest, String> productidColumn;
     @FXML
-    private TableColumn<?, ?> quantityColumn;
+    private TableColumn<ProductRequest, String> quantityColumn;
     @FXML
-    private TableColumn<?, ?> dateColumn;
+    private TableColumn<ProductRequest, String> dateColumn;
     @FXML
     private TextField productidTextfield;
     @FXML
@@ -48,17 +51,23 @@ public class ProductRequestController implements Initializable {
     @FXML
     private TextField dateTextfield;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<ProductRequest> productReqList;
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        productReqList = new ArrayList<ProductRequest>();
+        
+        employeeidColumn.setCellValueFactory(new PropertyValueFactory<ProductRequest,String>("EmployeeID"));
+        contactColumn.setCellValueFactory(new PropertyValueFactory<ProductRequest,String>("Contact"));
+        productidColumn.setCellValueFactory(new PropertyValueFactory<ProductRequest,String>("productID"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<ProductRequest,String>("quantity"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<ProductRequest,String>("date"));
     }    
 
     @FXML
     private void backOnclick(ActionEvent event) throws Exception{
-                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         
@@ -67,15 +76,88 @@ public class ProductRequestController implements Initializable {
     }
 
     @FXML
-    private void confiemOnclick(ActionEvent event) {
+    private void confiemOnclick(ActionEvent event) throws IOException{
+                
+        File f = null;
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        try{
+            f = new File("ProductRequest.bin");
+            if(f.exists()){
+                fos = new FileOutputStream(f, true);
+                oos = new AppendableObjectOutputStream(fos);
+                
+            }
+            else{
+                fos = new FileOutputStream(f);
+                oos = new ObjectOutputStream(fos);
+            }
+            
+            //String EmployeeID, String Contact, String productID, String quantity, String date
+            
+            ProductRequest d = new ProductRequest(employeeidTextfield.getText(), contactTextfield.getText(),
+                    productidTextfield.getText(), quantityTextfield.getText(), dateTextfield.getText());
+            
+            oos.writeObject(d); 
+            
+            employeeidTextfield.clear(); contactTextfield.clear();
+            productidTextfield.clear(); quantityTextfield.clear();
+            dateTextfield.clear();
+            
+            fos.close();
+            oos.close();
+            
+        }
+        catch(IOException e){
+            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+    
+        }
+        finally{
+            try{
+                if(oos != null) oos.close();
+            }
+            catch(IOException e){
+                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
     }
 
+    @FXML
+    private void loadProductRequestFile(){
+        ObjectInputStream ois = null;
+        try{
+            ProductRequest i;
+            ois = new ObjectInputStream(new FileInputStream("ProductRequest.bin"));
+            while(true){
+                i = (ProductRequest) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+    
     @FXML
     private void showproductsOnclick(ActionEvent event) {
+        loadProductRequestFile();
     }
 
     @FXML
-    private void sendOnclick(ActionEvent event) {
+    private void sendOnclick(ActionEvent event) throws Exception{
+                Parent mainSceneParent = FXMLLoader.load(getClass().getResource("TransportOperatorDashboard.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
     }
     
 }
