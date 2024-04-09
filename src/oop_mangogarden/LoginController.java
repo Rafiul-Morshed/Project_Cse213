@@ -29,11 +29,11 @@ public class LoginController implements Initializable {
     private TextField passwordTextfield;
     
 
-
+ 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         employeetypeCombobox.getItems().addAll("Accountant", "Transport Operator",
                 "Garden Manager", "Supply Chain Manager", "IT Admin", "Horticulturist","CEO");
 

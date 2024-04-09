@@ -16,37 +16,38 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+//import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class SalaryReportController implements Initializable {
 
     @FXML
-    private ComboBox<?> employeetypeCombobox;
+    private ComboBox<String> employeetypeCombobox;
     @FXML
-    private TextField idTextfield;
+    private TableView<Salary> tableview;
     @FXML
-    private TableView<?> tableview;
+    private TableColumn<Salary, String> employeetypeColumn;
     @FXML
-    private TableColumn<?, ?> employeetypeColumn;
+    private TableColumn<Salary, String> idColumn;
     @FXML
-    private TableColumn<?, ?> employeenameColmun;
+    private TableColumn<Salary, String> salaryColumn;
     @FXML
-    private TableColumn<?, ?> idColumn;
+    private TableColumn<Salary, String> employeenameColmun;
     @FXML
-    private TableColumn<?, ?> salaryColumn;
+    private ComboBox<String> employeenameCombobox;
 
-    /**
-     * Initializes the controller class.
-     */
+    // get_user_list(){
+    // file read and store all data to an array
+    //return array
+   //}
+    //ArrayList<Salary> salaryreportList;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+                // arr = getUserList() 
+        employeetypeCombobox.getItems().addAll("Accountant", "Transport Operator",
+                "Garden Manager", "Supply Chain Manager", "IT Admin", "Horticulturist","CEO");
     }    
 
     @FXML

@@ -8,25 +8,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="429.0" prefWidth="744.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_mangogarden.BillAdjustmentController">
+<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop_mangogarden.BillAdjustmentController">
    <children>
       <Label layoutX="290.0" layoutY="14.0" text="Bill Adjustment">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutX="622.0" layoutY="50.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: #1E90FF;" text="Back" />
-      <Label layoutX="55.0" layoutY="81.0" text="Invoice No:" />
-      <TextField layoutX="162.0" layoutY="76.0" />
-      <Button layoutX="55.0" layoutY="126.0" mnemonicParsing="false" text="Show Bill" />
-      <TableView layoutX="55.0" layoutY="186.0" prefHeight="200.0" prefWidth="636.0">
+      <Button layoutX="589.0" layoutY="50.0" mnemonicParsing="false" onAction="#backOnclick" prefHeight="31.0" prefWidth="69.0" style="-fx-background-color: #1E90FF;" text="Back" />
+      <Label layoutX="56.0" layoutY="109.0" text="Order ID:" />
+      <TextField fx:id="orderidTextfield" layoutX="179.0" layoutY="104.0" />
+      <Button layoutX="56.0" layoutY="209.0" mnemonicParsing="false" onAction="#showbillOnclick" prefHeight="31.0" prefWidth="196.0" text="Show Bill" />
+      <TableView fx:id="tableview" layoutX="56.0" layoutY="312.0" prefHeight="200.0" prefWidth="608.0">
         <columns>
-          <TableColumn prefWidth="119.0" text="Client Name" />
-          <TableColumn prefWidth="106.0" text="Invoice No" />
-            <TableColumn prefWidth="154.0" text="Product Name" />
-            <TableColumn prefWidth="104.0" text="Issue Date" />
-            <TableColumn prefWidth="152.0" text="Total Price" />
+          <TableColumn fx:id="idColumn" prefWidth="119.0" text="Order ID" />
+          <TableColumn fx:id="quantityColumn" prefWidth="119.0" text=" Quantity" />
+            <TableColumn fx:id="totalpriceColumn" prefWidth="141.0" text="Total Price" />
+            <TableColumn fx:id="paidColumn" prefWidth="104.0" text="Paid" />
+            <TableColumn fx:id="dueColumn" prefWidth="124.0" text="Due" />
         </columns>
       </TableView>
+      <Label layoutX="56.0" layoutY="157.0" text="Quantity:" />
+      <TextField fx:id="quantityTextfield" layoutX="179.0" layoutY="152.0" />
+      <Label layoutX="411.0" layoutY="109.0" text="Paid:" />
+      <TextField fx:id="paidTYextfield" layoutX="471.0" layoutY="104.0" />
+      <Label layoutX="411.0" layoutY="157.0" text="Due:" />
+      <TextField fx:id="dueTextfield" layoutX="471.0" layoutY="152.0" />
+      <Button layoutX="411.0" layoutY="209.0" mnemonicParsing="false" onAction="#adjustOnclick" prefHeight="31.0" prefWidth="196.0" text="Adjust" />
+      <Button layoutX="56.0" layoutY="268.0" mnemonicParsing="false" onAction="#showadjustbillOnclick" prefHeight="31.0" prefWidth="377.0" text="Show Adjust Bill" />
    </children>
 </AnchorPane>
