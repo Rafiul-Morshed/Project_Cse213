@@ -12,19 +12,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
+
 public class TransportOperatorDashboardController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }    
 
     @FXML
@@ -112,6 +106,16 @@ public class TransportOperatorDashboardController implements Initializable {
     @FXML
     private void damagereportOnclick(ActionEvent event) throws Exception{
                 Parent mainSceneParent = FXMLLoader.load(getClass().getResource("DamageAdjustmentReport.fxml"));
+        Scene scene1 = new Scene(mainSceneParent);
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(scene1);
+        window.show();
+    }
+
+    @FXML
+    private void moneyreceiptOnclick(ActionEvent event) throws Exception{
+           Parent mainSceneParent = FXMLLoader.load(getClass().getResource("FXMLmoneyreceipt.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         

@@ -99,14 +99,6 @@ public class CreateBillController implements Initializable {
             }
             
 
-//            System.out.println(customernameTextfield.getText());
-//            System.out.println(addressTextfield.getText());
-//            System.out.println(issuedateTextfield.getText());  // Problem here---
-//            System.out.println(productnameTextfield.getText());
-//            System.out.println(Integer.parseInt(quantityTextfield.getText()));
-//            System.out.println(Integer.parseInt(invoiceTextfield.getText()));
-            //System.out.println(total);
-
 // String customerName, String address, int issueDate, String productname, int quantity, int invoiceNo, Float totalPrice
             Float total = 100.00f;
             Bill d = new Bill(customernameTextfield.getText(), addressTextfield.getText(),
@@ -136,25 +128,9 @@ public class CreateBillController implements Initializable {
             }
         }
         
-        
-        
-//                Float total=100.00f;
-//                createbillList.add(
-//                    new Bill(
-//                        customernameTextfield.getText(),
-//                        addressTextfield.getText(),
-//                        Integer.parseInt(issuedateTextfield.getText()),
-//                        productnameTextfield.getText(),
-//                        Integer.parseInt(quantityColumn.getText()),
-//                        Integer.parseInt(invoiceTextfield.getText()),
-//                        total
-//                    
-//                    )
-//        
-//                );
     }
     
-    @FXML
+
     private void loadCreatbillFile(){
         ObjectInputStream ois = null;
         try{
@@ -178,11 +154,8 @@ public class CreateBillController implements Initializable {
     }
 
     @FXML
-    private void shownewbillOnclick(ActionEvent event) throws Exception{
+    private void shownewbillOnclick(ActionEvent event){
         loadCreatbillFile();
-
-//                for(Bill i: createbillList){
-//            tableview.getItems().add(i);
         
     }
     

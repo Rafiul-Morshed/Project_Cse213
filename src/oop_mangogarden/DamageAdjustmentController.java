@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +20,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -97,7 +95,7 @@ public class DamageAdjustmentController implements Initializable {
             
         }
         catch(IOException e){
-            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(DamageAdjustmentController.class.getName()).log(Level.SEVERE, null, e);
     
         }
         finally{
@@ -105,7 +103,7 @@ public class DamageAdjustmentController implements Initializable {
                 if(oos != null) oos.close();
             }
             catch(IOException e){
-                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(DamageAdjustmentController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }

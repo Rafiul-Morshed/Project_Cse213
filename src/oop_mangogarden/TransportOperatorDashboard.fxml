@@ -21,5 +21,6 @@
       <Button layoutX="362.0" layoutY="137.0" mnemonicParsing="false" onAction="#transportationOnclcik" text="Transportation Info" />
       <Button layoutX="47.0" layoutY="200.0" mnemonicParsing="false" onAction="#damagereportOnclick" text="Damage Adjustment Report" />
       <Button layoutX="359.0" layoutY="200.0" mnemonicParsing="false" onAction="#damageadjustmentOnclick" text="Damage Adjustment" />
+      <Button layoutX="47.0" layoutY="260.0" mnemonicParsing="false" onAction="#moneyreceiptOnclick" text="Money Receipt" />
    </children>
 </AnchorPane>

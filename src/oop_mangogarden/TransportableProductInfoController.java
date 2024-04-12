@@ -3,6 +3,8 @@ package oop_mangogarden;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,9 +32,16 @@ public class TransportableProductInfoController implements Initializable {
     @FXML
     private TableColumn<?, ?> totalpriceColumn;
 
-    /**
-     * Initializes the controller class.
-     */
+    ObservableList<SaleInfo> list = FXCollections.observableArrayList( 
+            
+        new SaleInfo("Asif", "24001", "Mango", "01.02.24", "50,0000"),
+        new SaleInfo("Himel", "24002", "Mango", "11.02.24", "55,0000"),
+        new SaleInfo("Sufian", "24003", "Mango", "05.03.24", "42,0000"),
+        new SaleInfo("Sara", "24004", "Mango", "15.03.24", "40,0000"),
+        new SaleInfo("Yasim", "24004", "Mango", "15.03.24", "60,0000"),
+        new SaleInfo("Abira", "24004", "Mango", "15.03.24", "60,0000")
+
+    );
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

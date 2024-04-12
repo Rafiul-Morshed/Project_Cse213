@@ -1,10 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package oop_mangogarden;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,40 +17,54 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author User-pc
- */
 public class MoneyReceiptController implements Initializable {
 
     @FXML
-    private TableView<?> tableview;
+    private TableView<MoneyReceipt> tableview;
     @FXML
-    private TableColumn<?, ?> dateColumn;
+    private TableColumn<MoneyReceipt, String> dateColumn;
     @FXML
-    private Button showallreciptOnclick;
+    private TableColumn<MoneyReceipt, String> totalpriceColumn;
     @FXML
-    private TextField dateTextfield;
+    private TableColumn<MoneyReceipt, String> drivernameColumn;
     @FXML
-    private Button showreciptOnclick;
-    @FXML
-    private TableColumn<?, ?> totalpriceColumn;
-    @FXML
-    private TableColumn<?, ?> drivernameColumn;
-    @FXML
-    private TableColumn<?, ?> contactColumn;
+    private TableColumn<MoneyReceipt, String> contactColumn;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<MoneyReceipt> receiptList;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        receiptList = new ArrayList<MoneyReceipt>();
+        
+        drivernameColumn.setCellValueFactory(new PropertyValueFactory<MoneyReceipt,String>("driverName"));
+        contactColumn.setCellValueFactory(new PropertyValueFactory<MoneyReceipt,String>("ContactNumber"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<MoneyReceipt,String>("date"));
+        totalpriceColumn.setCellValueFactory(new PropertyValueFactory<MoneyReceipt,String>("totalprice"));    } 
+    
+    private void loadreportFile(){
+        ObjectInputStream ois = null;
+        try{
+            MoneyReceipt i;
+            ois = new ObjectInputStream(new FileInputStream("MoneyReceipt.bin"));
+            while(true){
+                i = (MoneyReceipt) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void backOnclick(ActionEvent event) throws Exception{
@@ -59,6 +74,11 @@ public class MoneyReceiptController implements Initializable {
         
         window.setScene(scene1);
         window.show();        
+    }
+
+    @FXML
+    private void showallreciptOnclick(ActionEvent event) {
+        loadreportFile();
     }
     
 }

@@ -1,10 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
-package oop_mangogarden;
 
+package oop_mangogarden;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,14 +16,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 //import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
 public class SalaryReportController implements Initializable {
-
-    @FXML
-    private ComboBox<String> employeetypeCombobox;
     @FXML
     private TableView<Salary> tableview;
     @FXML
@@ -34,22 +32,22 @@ public class SalaryReportController implements Initializable {
     private TableColumn<Salary, String> salaryColumn;
     @FXML
     private TableColumn<Salary, String> employeenameColmun;
-    @FXML
-    private ComboBox<String> employeenameCombobox;
-
-    // get_user_list(){
-    // file read and store all data to an array
-    //return array
-   //}
-    //ArrayList<Salary> salaryreportList;
-
+ 
+    ArrayList<Salary> salaryList;   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                // arr = getUserList() 
-        employeetypeCombobox.getItems().addAll("Accountant", "Transport Operator",
-                "Garden Manager", "Supply Chain Manager", "IT Admin", "Horticulturist","CEO");
-    }    
+        
+        salaryList = new ArrayList<Salary>();
+//        System.out.println(salaryList);
+//        System.out.println(" salary List");
+        
+        employeetypeColumn.setCellValueFactory(new PropertyValueFactory<Salary,String>("employeeType"));
+        employeenameColmun.setCellValueFactory(new PropertyValueFactory<Salary,String>("name"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<Salary,String>("ID"));
+        salaryColumn.setCellValueFactory(new PropertyValueFactory<Salary,String>("salary"));
 
+    }
+    
     @FXML
     private void backOnclick(ActionEvent event) throws Exception{
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("AccountantDashboard.fxml"));
@@ -60,8 +58,31 @@ public class SalaryReportController implements Initializable {
         window.show();
     }
 
+        private void loadSalaryFile(){
+        ObjectInputStream ois = null;
+        try{
+            Salary i;
+            ois = new ObjectInputStream(new FileInputStream("Salary.bin"));
+            while(true){
+                i = (Salary) ois.readObject();
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+    
     @FXML
     private void showreportOnclick(ActionEvent event) {
+        loadSalaryFile();
     }
     
 }
