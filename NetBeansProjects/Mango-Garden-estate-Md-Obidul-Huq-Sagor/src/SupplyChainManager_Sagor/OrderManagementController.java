@@ -51,7 +51,7 @@ public class OrderManagementController implements Initializable {
                 "1Kg", "2Kg", "3Kg", "4Kg", "5Kg",
                 "6Kg", "7Kg", "8Kg", "9Kg", "10Kg",
                 "11Kg", "12Kg", "13Kg", "14Kg", "15Kg",
-                "16Kg", "17Kg", "18Kg", "19Kg", "20Kg"
+                "16Kg", "17Kg", "18Kg", "19Kg", "20Kg", "30Kg","40Kg"
         );
     }
 
@@ -110,7 +110,7 @@ public class OrderManagementController implements Initializable {
 
     @FXML
     private void omInventoryOnClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("mainSupplyChainManager.fxml"));
+        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("inventoryTrackingDashboard.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene1);
