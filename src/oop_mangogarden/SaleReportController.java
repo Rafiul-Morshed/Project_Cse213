@@ -24,7 +24,7 @@ public class SaleReportController implements Initializable {
     @FXML
     private TableView<SaleInfo> tableview;
     @FXML
-    private TableColumn<SaleInfo, String> clientnameColumn;
+    private TableColumn<SaleInfo, String> quantityColumn;
     @FXML
     private TableColumn<SaleInfo, String> invoiceColumn;
     @FXML
@@ -35,18 +35,19 @@ public class SaleReportController implements Initializable {
     private TableColumn<SaleInfo, String> totalpriceColumn;
     ObservableList<SaleInfo> list = FXCollections.observableArrayList( 
             
-        new SaleInfo("Asif", "24001", "Mango", "01.02.24", "50,0000"),
-        new SaleInfo("Himel", "24002", "Mango", "11.02.24", "55,0000"),
-        new SaleInfo("Sufian", "24003", "Mango", "05.03.24", "42,0000"),
-        new SaleInfo("Sara", "24004", "Mango", "15.03.24", "40,0000"),
-        new SaleInfo("Yasim", "24004", "Mango", "15.03.24", "60,0000"),
-        new SaleInfo("Abira", "24004", "Mango", "15.03.24", "60,0000")
+        new SaleInfo( "24001", "Mango", "9","01.02.24", "50,0000"),
+        new SaleInfo("24002", "Mango", "5", "11.02.24", "55,0000"),
+        new SaleInfo("24003", "Mango", "3", "05.03.24", "42,0000"),
+        new SaleInfo("24004", "Mango", "10", "15.03.24", "40,0000"),
+        new SaleInfo("24005", "Mango", "6", "15.03.24", "60,0000"),
+        new SaleInfo("24006", "Mango", "15", "15.03.24", "60,0000")
 
     );
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        clientnameColumn.setCellValueFactory(new PropertyValueFactory<SaleInfo, String>("costomername"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<SaleInfo, String>("quantity"));
         invoiceColumn.setCellValueFactory(new PropertyValueFactory<SaleInfo,String>("invoiceNo"));
         productnameCloumn.setCellValueFactory(new PropertyValueFactory<SaleInfo,String>("productName"));
         saledateColumn.setCellValueFactory(new PropertyValueFactory<SaleInfo,String>("saleDate"));

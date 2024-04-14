@@ -67,9 +67,7 @@ public class DamageAdjustmentReportController implements Initializable {
         window.show();   
     }
     
-    @FXML
     private void loadDamageFile(){
-        //tableview.clear();
         ObjectInputStream ois = null;
         try{
             DamageAdjust i;

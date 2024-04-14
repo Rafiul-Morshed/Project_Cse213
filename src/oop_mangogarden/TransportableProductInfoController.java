@@ -14,37 +14,42 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
 public class TransportableProductInfoController implements Initializable {
 
     @FXML
-    private TableView<?> tableview;
+    private TableView<ProductInfo> tableview;
     @FXML
-    private TableColumn<?, ?> productnameColumn;
+    private TableColumn<ProductInfo, String> productnameColumn;
     @FXML
-    private TableColumn<?, ?> productidColumn;
+    private TableColumn<ProductInfo, String> productidColumn;
     @FXML
-    private TableColumn<?, ?> orderedColumn;
+    private TableColumn<ProductInfo, String> orderedColumn;
     @FXML
-    private TableColumn<?, ?> destinationColmun;
+    private TableColumn<ProductInfo, String> destinationColmun;
     @FXML
-    private TableColumn<?, ?> totalpriceColumn;
+    private TableColumn<ProductInfo, String> totalpriceColumn;
 
-    ObservableList<SaleInfo> list = FXCollections.observableArrayList( 
+    ObservableList<ProductInfo> list = FXCollections.observableArrayList( 
             
-        new SaleInfo("Asif", "24001", "Mango", "01.02.24", "50,0000"),
-        new SaleInfo("Himel", "24002", "Mango", "11.02.24", "55,0000"),
-        new SaleInfo("Sufian", "24003", "Mango", "05.03.24", "42,0000"),
-        new SaleInfo("Sara", "24004", "Mango", "15.03.24", "40,0000"),
-        new SaleInfo("Yasim", "24004", "Mango", "15.03.24", "60,0000"),
-        new SaleInfo("Abira", "24004", "Mango", "15.03.24", "60,0000")
+        new ProductInfo( "Mango", "0001", "Confirm","Dhaka", "50,0000"),
+        new ProductInfo("Mango", "0002", "Confirm", "Dhaka", "55,0000"),
+        new ProductInfo("Mango", "0003", "Confirm", "Dhaka", "42,0000"),
+        new ProductInfo("Mango", "0004", "Confirm", "Cumilla", "40,0000"),
+        new ProductInfo("Mango", "0005", "Confirm", "Dhaka", "60,0000"),
+        new ProductInfo("Mango", "0006", "Confirm", "Dhaka", "60,0000")
 
     );
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        productnameColumn.setCellValueFactory(new PropertyValueFactory<ProductInfo, String>("name"));
+        productidColumn.setCellValueFactory(new PropertyValueFactory<ProductInfo,String>("id"));
+        orderedColumn.setCellValueFactory(new PropertyValueFactory<ProductInfo,String>("oreder"));
+        destinationColmun.setCellValueFactory(new PropertyValueFactory<ProductInfo,String>("destination"));
+        totalpriceColumn.setCellValueFactory(new PropertyValueFactory<ProductInfo,String>("totalprice"));
     }    
 
     @FXML
@@ -68,6 +73,8 @@ public class TransportableProductInfoController implements Initializable {
 
     @FXML
     private void showproductOnclick(ActionEvent event) {
+       tableview.setItems(list);
+
     }
     
 }

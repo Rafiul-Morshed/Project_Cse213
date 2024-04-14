@@ -12,6 +12,7 @@ public class DamageAdjust implements Serializable{
     private String quantity;
     private String damagequantity;
     private String adjustment;
+    
 
     public DamageAdjust(String Drivername, String plateno, String date, String destination, 
             String productID, String quantity, String damagequantity, String adjustment) {

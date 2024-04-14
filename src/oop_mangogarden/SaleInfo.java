@@ -1,27 +1,22 @@
 
 package oop_mangogarden;
 
-public class SaleInfo {
-    private String costomername;
+import java.io.Serializable;
+
+public class SaleInfo implements Serializable{
+
     private String invoiceNo;
     private String productName;
-    private String saleDate;
-    private String totalPrice;
+    String quantity;
+    String saleDate;
+    String totalPrice;
 
-    public SaleInfo(String costomername, String invoiceNo, String productName, String saleDate, String totalPrice) {
-        this.costomername = costomername;
+    public SaleInfo(String invoiceNo, String productName, String quantity, String saleDate, String totalPrice) {
         this.invoiceNo = invoiceNo;
         this.productName = productName;
+        this.quantity = quantity;
         this.saleDate = saleDate;
         this.totalPrice = totalPrice;
-    }
-
-    public String getCostomername() {
-        return costomername;
-    }
-
-    public void setCostomername(String costomername) {
-        this.costomername = costomername;
     }
 
     public String getInvoiceNo() {
@@ -38,6 +33,14 @@ public class SaleInfo {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getSaleDate() {
@@ -58,9 +61,10 @@ public class SaleInfo {
 
     @Override
     public String toString() {
-        return "SaleInfo{" + "costomername=" + costomername + ", invoiceNo=" + invoiceNo + ", productName=" + productName + ", saleDate=" + saleDate + ", totalPrice=" + totalPrice + '}';
+        return "SaleInfo{" + "invoiceNo=" + invoiceNo + ", productName=" + productName + ", quantity=" + quantity + ", saleDate=" + saleDate + ", totalPrice=" + totalPrice + '}';
     }
-    
+
+
     
     
 }

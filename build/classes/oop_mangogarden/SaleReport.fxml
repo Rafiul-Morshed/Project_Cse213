@@ -18,9 +18,9 @@
       <Button layoutX="54.0" layoutY="83.0" mnemonicParsing="false" onAction="#showreportOnclick" text="Show Report" />
       <TableView fx:id="tableview" layoutX="54.0" layoutY="140.0" prefHeight="200.0" prefWidth="599.0">
         <columns>
-            <TableColumn fx:id="clientnameColumn" prefWidth="139.0" text="Customer Name" />
           <TableColumn fx:id="invoiceColumn" prefWidth="99.0" text="Invoice No" />
           <TableColumn fx:id="productnameCloumn" prefWidth="128.0" text="Product Name" />
+            <TableColumn fx:id="quantityColumn" prefWidth="139.0" text="Quantity" />
             <TableColumn fx:id="saledateColumn" prefWidth="106.0" text="Sale Date" />
             <TableColumn fx:id="totalpriceColumn" prefWidth="126.0" text="Total Price" />
         </columns>

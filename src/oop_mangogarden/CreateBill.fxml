@@ -25,7 +25,7 @@
       <TextField fx:id="issuedateTextfield" layoutX="168.0" layoutY="213.0" />
       <Label layoutX="432.0" layoutY="129.0" text="Product Name:" />
       <TextField fx:id="productnameTextfield" layoutX="554.0" layoutY="124.0" />
-      <Label layoutX="432.0" layoutY="173.0" text="Quantity:" />
+      <Label layoutX="432.0" layoutY="173.0" text="Quantity/kg:" />
       <TextField fx:id="quantityTextfield" layoutX="554.0" layoutY="168.0" />
       <Label layoutX="432.0" layoutY="218.0" text="Invoice Number:" />
       <TextField fx:id="invoiceTextfield" layoutX="554.0" layoutY="213.0" />
@@ -35,7 +35,7 @@
           <TableColumn fx:id="invoiceColumn" prefWidth="105.0" text="Invoice No" />
           <TableColumn fx:id="productnameColumn" prefWidth="205.0" text="Product Name" />
             <TableColumn fx:id="issuedateColumn" prefWidth="131.0" text="Issue Date" />
-            <TableColumn fx:id="quantityColumn" prefWidth="115.0" text="Quantity" />
+            <TableColumn fx:id="quantityColumn" prefWidth="115.0" text="Quantity/kg" />
             <TableColumn fx:id="totalpriceColumn" prefWidth="141.0" text="Total Price" />
         </columns>
       </TableView>

@@ -2,10 +2,13 @@
 package oop_mangogarden;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
@@ -31,7 +35,7 @@ public class BillAdjustmentController implements Initializable {
     @FXML
     private TableColumn<Adjustment, String> quantityColumn;
     @FXML
-    private TableColumn<Adjustment, String> totalpriceColumn;
+    private TableColumn<Adjustment, Float> totalpriceColumn;
     @FXML
     private TableColumn<Adjustment, String> paidColumn;
     @FXML
@@ -44,11 +48,21 @@ public class BillAdjustmentController implements Initializable {
     private TextField dueTextfield;
     @FXML
     private TableColumn<Adjustment, String> invoiceColumn;
+    
+    ArrayList<Adjustment> adjustList;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        adjustList = new ArrayList<Adjustment>();
+        
+        invoiceColumn.setCellValueFactory(new PropertyValueFactory<Adjustment,String>("invoiceno"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<Adjustment,String>("quantity"));
+        totalpriceColumn.setCellValueFactory(new PropertyValueFactory<Adjustment,Float>("total"));
+        paidColumn.setCellValueFactory(new PropertyValueFactory<Adjustment,String>("paid"));
+        dueColumn.setCellValueFactory(new PropertyValueFactory<Adjustment,String>("due"));
+        
+   }    
 
     @FXML
     private void backOnclick(ActionEvent event) throws Exception {
@@ -61,15 +75,7 @@ public class BillAdjustmentController implements Initializable {
     }
 
     @FXML
-    private void showbillOnclick(ActionEvent event) {
-    }
-
-//    @FXML
-//    private void adjustOnclick(ActionEvent event) {
-//    }
-
-    @FXML
-    private void showadjustbillOnclick(ActionEvent event) throws IOException{
+    private void saveOnclick(ActionEvent event) throws IOException{
         File f = null;
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -89,7 +95,7 @@ public class BillAdjustmentController implements Initializable {
 
             Adjustment d = new Adjustment(orderidTextfield.getText(), quantityTextfield.getText(),total,
                     Integer.parseInt(paidTYextfield.getText()), Integer.parseInt(dueTextfield.getText()));
-            
+            System.out.println(  d);
             oos.writeObject(d); 
             
             orderidTextfield.clear(); quantityTextfield.clear();
@@ -112,5 +118,36 @@ public class BillAdjustmentController implements Initializable {
             }
         }
     }
+
+    
+    private void loadAdjustFile(){
+        ObjectInputStream ois = null;
+        try{
+            Adjustment i;
+            ois = new ObjectInputStream(new FileInputStream("BillAdjust.bin"));
+            while(true){
+                i = (Adjustment) ois.readObject();
+                System.out.println(i);
+                tableview.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void showadjustbillOnclick(ActionEvent event) throws IOException{
+        loadAdjustFile();
+
+    }
+
     
 }
