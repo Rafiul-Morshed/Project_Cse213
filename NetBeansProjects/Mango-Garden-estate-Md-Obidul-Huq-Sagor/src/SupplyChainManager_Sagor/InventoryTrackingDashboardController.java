@@ -4,7 +4,10 @@
  */
 package SupplyChainManager_Sagor;
 
+import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -17,6 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -27,28 +31,56 @@ import javafx.stage.Stage;
 public class InventoryTrackingDashboardController implements Initializable {
 
     @FXML
-    private TableView<?> ItTablefxid;
+    private TableView<orderManagementBin> ItTablefxid;
     @FXML
-    private TableColumn<?, ?> datefxid;
+    private TableColumn<orderManagementBin, String> datefxid;
     @FXML
     private Button BackItfxid;
     @FXML
-    private TableColumn<?, ?> customerNamefxid;
+    private TableColumn<orderManagementBin, String> customerNamefxid;
     @FXML
-    private TableColumn<?, ?> productNamefxid;
+    private TableColumn<orderManagementBin, String> productNamefxid;
     @FXML
-    private TableColumn<?, ?> quantityfxid;
+    private TableColumn<orderManagementBin, String> quantityfxid;
     @FXML
-    private TableColumn<?, ?> amountfxid;
+    private TableColumn<orderManagementBin, String> amountfxid;
 
-    /**
-     * Initializes the controller class.
-     */
+    ArrayList<orderManagementBin> orderManagementList;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        orderManagementList = new ArrayList <orderManagementBin>();
+        
+        datefxid.setCellValueFactory(new PropertyValueFactory<orderManagementBin,String>("Date"));
+        customerNamefxid.setCellValueFactory(new PropertyValueFactory<orderManagementBin,String>("CoustomerName"));
+        productNamefxid.setCellValueFactory(new PropertyValueFactory<orderManagementBin,String>("product"));
+        quantityfxid.setCellValueFactory(new PropertyValueFactory<orderManagementBin,String>("quantity"));
+        amountfxid.setCellValueFactory(new PropertyValueFactory<orderManagementBin,String>("Amount"));
+        
     }    
-
+    private void loadOrderManagementFile(){
+        ObjectInputStream ois = null;
+        try{
+            orderManagementBin i;
+            ois = new ObjectInputStream(new FileInputStream("Order.bin"));
+            while(true){
+                i = (orderManagementBin) ois.readObject();
+                ItTablefxid.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
+    }
+    
+    
     @FXML
     private void BackItOnAction(ActionEvent event) throws IOException {
         
@@ -61,6 +93,11 @@ public class InventoryTrackingDashboardController implements Initializable {
 
     @FXML
     private void itPrintOnClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void itShowOnClick(ActionEvent event) {
+        loadOrderManagementFile();
     }
     
 }
