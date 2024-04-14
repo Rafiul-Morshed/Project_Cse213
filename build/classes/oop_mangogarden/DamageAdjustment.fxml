@@ -24,7 +24,7 @@
       <TextField fx:id="destinationTextfield" layoutX="190.0" layoutY="263.0" />
       <Label layoutX="446.0" layoutY="112.0" text="Product ID:" />
       <TextField fx:id="productidTextfield" layoutX="568.0" layoutY="107.0" />
-      <Label layoutX="446.0" layoutY="164.0" text="Quantity:" />
+      <Label layoutX="446.0" layoutY="164.0" text="Quantity/kg:" />
       <TextField fx:id="quantityTextfield" layoutX="568.0" layoutY="159.0" />
       <Label layoutX="446.0" layoutY="216.0" text="Damage Quantity:" />
       <TextField fx:id="damageTextfield" layoutX="568.0" layoutY="211.0" />

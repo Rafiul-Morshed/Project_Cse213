@@ -113,7 +113,7 @@ public class TransportationInformationController implements Initializable {
             
         }
         catch(IOException e){
-            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(TransportationInformationController.class.getName()).log(Level.SEVERE, null, e);
     
         }
         finally{
@@ -121,7 +121,7 @@ public class TransportationInformationController implements Initializable {
                 if(oos != null) oos.close();
             }
             catch(IOException e){
-                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(TransportationInformationController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
 

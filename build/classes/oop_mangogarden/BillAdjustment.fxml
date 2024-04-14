@@ -22,13 +22,13 @@
       <TableView fx:id="tableview" layoutX="56.0" layoutY="312.0" prefHeight="200.0" prefWidth="608.0">
         <columns>
           <TableColumn fx:id="invoiceColumn" prefWidth="119.0" text="Invoice No" />
-          <TableColumn fx:id="quantityColumn" prefWidth="119.0" text=" Quantity" />
+          <TableColumn fx:id="quantityColumn" prefWidth="119.0" text=" Quantity/kg" />
             <TableColumn fx:id="totalpriceColumn" prefWidth="141.0" text="Total Price" />
             <TableColumn fx:id="paidColumn" prefWidth="104.0" text="Paid" />
             <TableColumn fx:id="dueColumn" prefWidth="124.0" text="Due" />
         </columns>
       </TableView>
-      <Label layoutX="56.0" layoutY="157.0" text="Quantity:" />
+      <Label layoutX="56.0" layoutY="157.0" text="Quantity/kg:" />
       <TextField fx:id="quantityTextfield" layoutX="179.0" layoutY="152.0" />
       <Label layoutX="411.0" layoutY="109.0" text="Paid:" />
       <TextField fx:id="paidTYextfield" layoutX="471.0" layoutY="104.0" />

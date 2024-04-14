@@ -106,7 +106,7 @@ public class BillAdjustmentController implements Initializable {
             
         }
         catch(IOException e){
-            Logger.getLogger(DamageAdjustmentController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(BillAdjustmentController.class.getName()).log(Level.SEVERE, null, e);
     
         }
         finally{
@@ -114,7 +114,7 @@ public class BillAdjustmentController implements Initializable {
                 if(oos != null) oos.close();
             }
             catch(IOException e){
-                Logger.getLogger(DamageAdjustmentController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(BillAdjustmentController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }

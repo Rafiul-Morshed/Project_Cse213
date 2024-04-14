@@ -94,7 +94,7 @@ public class SupplierInfoController implements Initializable {
             
         }
         catch(IOException e){
-            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(SupplierInfoController.class.getName()).log(Level.SEVERE, null, e);
     
         }
         finally{
@@ -102,7 +102,7 @@ public class SupplierInfoController implements Initializable {
                 if(oos != null) oos.close();
             }
             catch(IOException e){
-                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(SupplierInfoController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }

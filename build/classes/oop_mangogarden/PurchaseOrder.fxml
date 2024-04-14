@@ -21,7 +21,7 @@
           <TableColumn fx:id="purchaseidColumn" prefWidth="97.0" text="Purchase Id" />
           <TableColumn fx:id="productnameColumn" prefWidth="160.0" text="Product Name" />
             <TableColumn fx:id="issuedateColumn" prefWidth="144.0" text="Issue Date" />
-            <TableColumn fx:id="quantityColumn" prefWidth="92.0" text="Quantity" />
+            <TableColumn fx:id="quantityColumn" prefWidth="92.0" text="Quantity/kg" />
             <TableColumn fx:id="priceColumn" prefWidth="181.0" text="Price" />
         </columns>
       </TableView>

@@ -16,7 +16,7 @@
       <Button layoutX="654.0" layoutY="50.0" mnemonicParsing="false" onAction="#backOnclick" prefHeight="31.0" prefWidth="72.0" style="-fx-background-color: #1E90ff;" text="Back" />
       <Label layoutX="64.0" layoutY="179.0" text="Product Name:" />
       <TextField fx:id="productnameTaxtfield" layoutX="186.0" layoutY="174.0" />
-      <Label layoutX="64.0" layoutY="225.0" text="Quantity:" />
+      <Label layoutX="64.0" layoutY="225.0" text="Quantity/kg:" />
       <TextField fx:id="quantityTextfield" layoutX="186.0" layoutY="220.0" />
       <Label layoutX="418.0" layoutY="131.0" text="Issue Date:" />
       <TextField fx:id="issuedateTextfield" layoutX="540.0" layoutY="126.0" />

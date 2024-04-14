@@ -13,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -38,8 +37,7 @@ public class SalaryReportController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         salaryList = new ArrayList<Salary>();
-//        System.out.println(salaryList);
-//        System.out.println(" salary List");
+
         
         employeetypeColumn.setCellValueFactory(new PropertyValueFactory<Salary,String>("employeeType"));
         employeenameColmun.setCellValueFactory(new PropertyValueFactory<Salary,String>("name"));

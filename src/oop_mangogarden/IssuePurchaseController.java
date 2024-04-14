@@ -80,7 +80,7 @@ public class IssuePurchaseController implements Initializable {
             
         }
         catch(IOException e){
-            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(IssuePurchaseController.class.getName()).log(Level.SEVERE, null, e);
     
         }
         finally{
@@ -88,7 +88,7 @@ public class IssuePurchaseController implements Initializable {
                 if(oos != null) oos.close();
             }
             catch(IOException e){
-                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(IssuePurchaseController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }

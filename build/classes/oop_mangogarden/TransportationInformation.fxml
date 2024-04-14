@@ -22,9 +22,9 @@
       <TextField fx:id="productidTextfield" layoutX="177.0" layoutY="144.0" />
       <Label layoutX="62.0" layoutY="197.0" text="Dispatch Date:" />
       <TextField fx:id="dispatchdateTextfield" layoutX="177.0" layoutY="192.0" />
-      <Label layoutX="431.0" layoutY="103.0" text="Vehicle Chassis No:" />
+      <Label layoutX="431.0" layoutY="103.0" text="Chassis No:" />
       <TextField fx:id="chassisnoTextfield" layoutX="582.0" layoutY="99.0" />
-      <Label layoutX="431.0" layoutY="148.0" text="Vehicle Plate No:" />
+      <Label layoutX="431.0" layoutY="148.0" text=" Plate No:" />
       <TextField fx:id="platenoTextfield" layoutX="582.0" layoutY="144.0" />
       <Label layoutX="431.0" layoutY="196.0" text="Destination:" />
       <TextField fx:id="destinationTextfield" layoutX="582.0" layoutY="191.0" />

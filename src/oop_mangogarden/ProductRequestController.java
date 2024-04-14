@@ -109,7 +109,7 @@ public class ProductRequestController implements Initializable {
             
         }
         catch(IOException e){
-            Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ProductRequestController.class.getName()).log(Level.SEVERE, null, e);
     
         }
         finally{
@@ -117,7 +117,7 @@ public class ProductRequestController implements Initializable {
                 if(oos != null) oos.close();
             }
             catch(IOException e){
-                Logger.getLogger(CreateBillController.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ProductRequestController.class.getName()).log(Level.SEVERE, null, e);
             }
         }
     }

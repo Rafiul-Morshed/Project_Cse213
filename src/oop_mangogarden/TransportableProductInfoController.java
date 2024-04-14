@@ -62,15 +62,6 @@ public class TransportableProductInfoController implements Initializable {
         window.show();
     }
 
-    private void editproductinfoOnclick(ActionEvent event) throws Exception{
-                        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("EditTransportableProductInfo.fxml"));
-        Scene scene1 = new Scene(mainSceneParent);
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(scene1);
-        window.show();
-    }
-
     @FXML
     private void showproductOnclick(ActionEvent event) {
        tableview.setItems(list);
