@@ -68,8 +68,6 @@ public class InventoryTrackingDashboardController implements Initializable {
             orderManagementBin i;
             ois = new ObjectInputStream(new FileInputStream("Order.bin"));
             while(true){
-//                i = (orderManagementBin) ois.readObject();
-//                ItTablefxid.getItems().add(i);
                 try {
                     orderManagementBin ms = (orderManagementBin) ois.readObject();
                     tempList.add(ms);
@@ -108,6 +106,7 @@ public class InventoryTrackingDashboardController implements Initializable {
 
     @FXML
     private void itPrintOnClick(ActionEvent event) {
+        
     }
 
     @FXML
