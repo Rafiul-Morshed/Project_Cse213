@@ -7,7 +7,6 @@ package SupplyChainManager_Sagor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,15 +36,14 @@ public class OrderManagementController implements Initializable {
 
     @FXML
     private TextField customerNamefxid;
-  
     @FXML
     private ComboBox<String> quantityfxid;
     @FXML
     private ComboBox<String> productfxid;
     @FXML
-    private TextField Amounfxid;
+    private TextField Amountfxid;
     @FXML
-    private TextField dateTextfxid;
+    private TextField datetextfxid;
 
     /**
      * Initializes the controller class.
@@ -62,6 +60,7 @@ public class OrderManagementController implements Initializable {
                 "11Kg", "12Kg", "13Kg", "14Kg", "15Kg",
                 "16Kg", "17Kg", "18Kg", "19Kg", "20Kg", "30Kg","40Kg"
         );
+       
     }
 
     @FXML
@@ -75,34 +74,6 @@ public class OrderManagementController implements Initializable {
 
     @FXML
     private void omAddOnClick(ActionEvent event) throws IOException{
-//        try {
-//            String CustomerName = customerNamefxid.getText();
-//            String Quantity = quantityfxid.getValue();
-//            LocalDate issueDate = datefxid.getValue();
-//            String Product = productfxid.getValue();
-//            String Amount = "";
-//
-//            // Automatically set the price for mangoes
-//            if (isMangoVariety(Product)) {
-//                // Assuming the price is 250 Taka per kg
-//                double pricePerKg = 250.0;
-//                int kg = Integer.parseInt(Quantity.substring(0, Quantity.length() - 2));
-//                double totalPrice = pricePerKg * kg;
-//                Amount = String.valueOf(totalPrice) + " Taka";
-//            }
-//
-//            // Display the calculated amount or leave it empty
-//            Amounfxid.setText(Amount);
-//
-//            if (CustomerName.isEmpty() || Quantity == null ||
-//                issueDate == null || Product == null || Amount.isEmpty()) {
-//                // Handle empty fields
-//            } else {
-//                // Save the order or perform other actions
-//            }
-//        } catch (Exception e) {
-//            // Handle exceptions
-//        }
 
         File f = null;
         FileOutputStream fos = null;
@@ -119,13 +90,13 @@ public class OrderManagementController implements Initializable {
                 oos = new ObjectOutputStream(fos);
             }
 
-            orderManagementBin d = new orderManagementBin(customerNamefxid.getText(), dateTextfxid.getText(),
-                    Amounfxid.getText());
-            
-            oos.writeObject(d); 
-            
-            customerNamefxid.clear(); dateTextfxid.clear();
-            Amounfxid.clear(); 
+            orderManagementBin d = new orderManagementBin(customerNamefxid.getText(), quantityfxid.getValue(),
+                    productfxid.getValue(), Amountfxid.getText(), datetextfxid.getText());
+
+            oos.writeObject(d);
+
+            customerNamefxid.clear(); quantityfxid.getSelectionModel().clearSelection(); productfxid.getSelectionModel().clearSelection();
+            Amountfxid.clear(); datetextfxid.clear();
             
             fos.close();
             oos.close();
@@ -146,16 +117,6 @@ public class OrderManagementController implements Initializable {
     
     }
 
-//    private boolean isMangoVariety(String product) {
-//        String[] mangoVarieties = {"Langra", "Fazli", "Himsagar",
-//                "Khirsapat", "Gopalbhog", "Amrapali", "Ashwina",
-//                "Bombai", "Hari Bhanga"};
-//        for (String variety : mangoVarieties) {
-//            if (variety.equalsIgnoreCase(product)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+
 
 }

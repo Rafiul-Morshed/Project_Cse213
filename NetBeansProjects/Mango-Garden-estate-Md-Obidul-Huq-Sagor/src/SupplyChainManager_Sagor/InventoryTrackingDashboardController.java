@@ -4,12 +4,15 @@
  */
 package SupplyChainManager_Sagor;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,6 +49,7 @@ public class InventoryTrackingDashboardController implements Initializable {
     private TableColumn<orderManagementBin, String> amountfxid;
 
     ArrayList<orderManagementBin> orderManagementList;
+    ObservableList<orderManagementBin> tempList = FXCollections.observableArrayList();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -64,9 +68,20 @@ public class InventoryTrackingDashboardController implements Initializable {
             orderManagementBin i;
             ois = new ObjectInputStream(new FileInputStream("Order.bin"));
             while(true){
-                i = (orderManagementBin) ois.readObject();
-                ItTablefxid.getItems().add(i);
+//                i = (orderManagementBin) ois.readObject();
+//                ItTablefxid.getItems().add(i);
+                try {
+                    orderManagementBin ms = (orderManagementBin) ois.readObject();
+                    tempList.add(ms);
+                } catch (EOFException e) {
+                    break;
+                } catch (ClassNotFoundException e) {
+                    System.err.println("Class not Found");
+                }
             }
+            for(orderManagementBin y : tempList){
+                 ItTablefxid.getItems().add(y);
+             }
         }
         catch(Exception e){
             try{
@@ -97,7 +112,25 @@ public class InventoryTrackingDashboardController implements Initializable {
 
     @FXML
     private void itShowOnClick(ActionEvent event) {
-        loadOrderManagementFile();
+                ObjectInputStream ois = null;
+        try{
+            orderManagementBin i;
+            ois = new ObjectInputStream(new FileInputStream("Order.bin"));
+            while(true){
+                i = (orderManagementBin) ois.readObject();
+                ItTablefxid.getItems().add(i);
+            }
+        }
+        catch(Exception e){
+            try{
+                if(ois != null)
+                    ois.close();
+            }
+            catch(IOException x){
+                x.printStackTrace();
+            }
+            e.printStackTrace();
+        }
     }
     
 }

@@ -10,19 +10,19 @@ import java.io.Serializable;
  *
  * @author md.obidulhuqsagor
  */
-public class orderManagementBin implements Serializable{
+    public class orderManagementBin implements Serializable{
     private String CoustomerName;
-    private String Date;
     private String quantity;
     private String product;
     private String Amount;
+    private String date;
 
-    public orderManagementBin(String CoustomerName, String Date, String quantity) {
+    public orderManagementBin(String CoustomerName, String quantity, String product, String Amount, String date) {
         this.CoustomerName = CoustomerName;
-        this.Date = Date;
         this.quantity = quantity;
         this.product = product;
         this.Amount = Amount;
+        this.date = date;
     }
 
     public String getCoustomerName() {
@@ -31,14 +31,6 @@ public class orderManagementBin implements Serializable{
 
     public void setCoustomerName(String CoustomerName) {
         this.CoustomerName = CoustomerName;
-    }
-
-    public String getDate() {
-        return Date;
-    }
-
-    public void setDate(String Date) {
-        this.Date = Date;
     }
 
     public String getQuantity() {
@@ -65,10 +57,20 @@ public class orderManagementBin implements Serializable{
         this.Amount = Amount;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
-        return "orderManagementBin{" + "CoustomerName=" + CoustomerName + ", Date=" + Date + ", quantity=" + quantity + ", product=" + product + ", Amount=" + Amount + '}';
+        return "orderManagementBin{" + "CoustomerName=" + CoustomerName + ", quantity=" + quantity + ", product=" + product + ", Amount=" + Amount + ", date=" + date + '}';
     }
     
+
     
+
 }
