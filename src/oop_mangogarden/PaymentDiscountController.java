@@ -88,11 +88,12 @@ public class PaymentDiscountController implements Initializable {
                 fos = new FileOutputStream(f);
                 oos = new ObjectOutputStream(fos);
             }
-            int price = 1000;
+            //int price = 1000;
             int Quantity = Integer.parseInt(quantityTextfield.getText());
             int Discount = Integer.parseInt(discountTextfield.getText());
-            int totalprice = (Quantity * price)- Discount;
-//String invoiceNo, int quantity, int price, int discount, int totalprice
+            int price = 1000*Quantity;
+            int totalprice = price - Discount;
+            
             PaymentDiscount d = new PaymentDiscount(invoiceTextfield.getText(), 
                     Integer.parseInt(quantityTextfield.getText()), price,
                     Integer.parseInt(discountTextfield.getText()), totalprice );
