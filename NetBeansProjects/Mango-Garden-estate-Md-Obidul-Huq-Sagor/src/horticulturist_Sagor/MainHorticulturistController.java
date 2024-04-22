@@ -108,8 +108,9 @@ public class MainHorticulturistController implements Initializable {
         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("/Mango_Garden_Enter_Page/login.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
         window.setScene(scene1);
-        window.show();
+        window.show(); 
     }
     
 }

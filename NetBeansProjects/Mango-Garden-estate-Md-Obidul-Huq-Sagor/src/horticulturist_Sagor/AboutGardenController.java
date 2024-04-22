@@ -21,7 +21,7 @@ import javafx.stage.Stage;
  *
  * @author md.obidulhuqsagor
  */
-public class GardenOverviewController implements Initializable {
+public class AboutGardenController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -31,13 +31,12 @@ public class GardenOverviewController implements Initializable {
         // TODO
     }    
 
-  
-
     @FXML
     private void agBackOnClick(ActionEvent event) throws IOException {
-        Parent mainSceneParent = FXMLLoader.load(getClass().getResource("mainHorticulturist.fxml"));
+         Parent mainSceneParent = FXMLLoader.load(getClass().getResource("mainHorticulturist.fxml"));
         Scene scene1 = new Scene(mainSceneParent);
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
         window.setScene(scene1);
         window.show();
     }
